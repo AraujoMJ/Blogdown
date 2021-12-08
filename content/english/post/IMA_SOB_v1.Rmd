@@ -2,7 +2,10 @@
 title: "Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos"
 output:
   html_notebook:
-    code_folding: "show"
+    code_folding: show
+  pdf_document: default
+  html_document:
+    df_print: paged
 date: 2021-12-08T11:55:12-08:00
 
 ---

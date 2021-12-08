@@ -19,7 +19,7 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 
 [frontmatter]
-date = ["date", "publishDate", "lastmod"]
+date = ["publishDate", "date", "lastmod"]
 
 [markup]
     [markup.goldmark]
