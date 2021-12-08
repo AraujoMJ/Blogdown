@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Blog do Araujo</title>
-    <link>https://example.com/post/</link>
+    <link>https://araujomj.github.io/blogdown/post/</link>
     <description>Recent content in Posts on Blog do Araujo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Dec 2021 11:55:12 -0800</lastBuildDate><atom:link href="https://example.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Dec 2021 11:55:12 -0800</lastBuildDate><atom:link href="https://araujomj.github.io/blogdown/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Análise de Variância</title>
-      <link>https://example.com/post/aula7_anova_v1/</link>
+      <link>https://araujomj.github.io/blogdown/post/aula7_anova_v1/</link>
       <pubDate>Tue, 07 Dec 2021 11:55:12 -0800</pubDate>
       
-      <guid>https://example.com/post/aula7_anova_v1/</guid>
+      <guid>https://araujomj.github.io/blogdown/post/aula7_anova_v1/</guid>
       
         <description>1. IntroduçãoDe acordo com Ramalho et. al, (2012), a análise de variância é o procedimento mais frequentemente utilizado na análise e interpretação de dados experimentais em ciências agrárias.</description>
       
@@ -20,10 +20,10 @@
     
     <item>
       <title>Análise de Regressão</title>
-      <link>https://example.com/post/aula6_regressao_v1/</link>
+      <link>https://araujomj.github.io/blogdown/post/aula6_regressao_v1/</link>
       <pubDate>Sun, 05 Dec 2021 11:55:12 -0800</pubDate>
       
-      <guid>https://example.com/post/aula6_regressao_v1/</guid>
+      <guid>https://araujomj.github.io/blogdown/post/aula6_regressao_v1/</guid>
       
         <description>1. IntroduçãoAnálise de regressão é uma técnica estatística que permite examinar e modelar a relação entre variáveis. A análise de regressão é amplamente aplicada em várias áreas do conhecimento (engenharias, ciências da física química, economia, administração, ciências biológicas e da vida, ciências sociais etc.</description>
       

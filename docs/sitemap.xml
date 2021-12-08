@@ -2,36 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://araujomj.github.io/blogdown/</loc>
     <lastmod>2021-12-07T11:55:12-08:00</lastmod>
   </url><url>
-    <loc>https://example.com/post/aula7_anova_v1/</loc>
+    <loc>https://araujomj.github.io/blogdown/post/aula7_anova_v1/</loc>
     <lastmod>2021-12-07T11:55:12-08:00</lastmod>
   </url><url>
-    <loc>https://example.com/post/</loc>
+    <loc>https://araujomj.github.io/blogdown/post/</loc>
     <lastmod>2021-12-07T11:55:12-08:00</lastmod>
   </url><url>
-    <loc>https://example.com/post/aula6_regressao_v1/</loc>
+    <loc>https://araujomj.github.io/blogdown/post/aula6_regressao_v1/</loc>
     <lastmod>2021-12-05T11:55:12-08:00</lastmod>
   </url><url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://araujomj.github.io/blogdown/about/</loc>
     <lastmod>2021-12-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/contact/</loc>
+    <loc>https://araujomj.github.io/blogdown/contact/</loc>
     <lastmod>2021-12-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/archives/</loc>
+    <loc>https://araujomj.github.io/blogdown/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/imprint/</loc>
+    <loc>https://araujomj.github.io/blogdown/imprint/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://araujomj.github.io/blogdown/categories/</loc>
   </url><url>
-    <loc>https://example.com/tags/index/</loc>
+    <loc>https://araujomj.github.io/blogdown/tags/index/</loc>
   </url><url>
-    <loc>https://example.com/series/</loc>
+    <loc>https://araujomj.github.io/blogdown/series/</loc>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://araujomj.github.io/blogdown/tags/</loc>
   </url>
 </urlset>
