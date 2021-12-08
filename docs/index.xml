@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog do Araujo</title>
+    <link>https://example.com/</link>
+    <description>Recent content on Blog do Araujo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Dec 2021 11:55:12 -0800</lastBuildDate><atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Análise de Variância</title>
+      <link>https://example.com/post/aula7_anova_v1/</link>
+      <pubDate>Tue, 07 Dec 2021 11:55:12 -0800</pubDate>
+      
+      <guid>https://example.com/post/aula7_anova_v1/</guid>
+      
+        <description>1. IntroduçãoDe acordo com Ramalho et. al, (2012), a análise de variância é o procedimento mais frequentemente utilizado na análise e interpretação de dados experimentais em ciências agrárias.</description>
+      
+    </item>
+    
+    <item>
+      <title>Análise de Regressão</title>
+      <link>https://example.com/post/aula6_regressao_v1/</link>
+      <pubDate>Sun, 05 Dec 2021 11:55:12 -0800</pubDate>
+      
+      <guid>https://example.com/post/aula6_regressao_v1/</guid>
+      
+        <description>1. IntroduçãoAnálise de regressão é uma técnica estatística que permite examinar e modelar a relação entre variáveis. A análise de regressão é amplamente aplicada em várias áreas do conhecimento (engenharias, ciências da física química, economia, administração, ciências biológicas e da vida, ciências sociais etc.</description>
+      
+    </item>
+    
+    <item>
+      <title>Sobre...</title>
+      <link>https://example.com/about/</link>
+      <pubDate>Sat, 04 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/about/</guid>
+      
+        <description>&amp;hellip;eu Meu nome é Marcio Araujo, sou Doutor em Agronomia (genética e melhoramento de plantas) junto à Universidade Estadual Paulista (FCAV/UNESP), Engenheiro Agrônomo pela mesma instituição e Tecnólogo em biocombustíveis pela FATEC de Jaboticabal.</description>
+      
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://example.com/contact/</link>
+      <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/contact/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/archives/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/archives/</guid>
+      
+        <description></description>
+      
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://example.com/imprint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/imprint/</guid>
+      
+        <description>Legal Disclosure Information in accordance with the applicable law
+Jane Doe
+Anatole Street 10
+2016 GoHugo
+Germany</description>
+      
+    </item>
+    
+  </channel>
+</rss>

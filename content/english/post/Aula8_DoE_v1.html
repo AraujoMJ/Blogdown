@@ -1,0 +1,411 @@
+---
+title: "Delineamento de Experimentos - DDE"
+output:
+  html_document:
+    df_print: paged
+  html_notebook:
+    code_folding: show
+date: 2021-12-08T11:55:12-08:00
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p><strong>Delineamento de experimento em R:</strong> O objetivo desse post é demonstrar como realizar o planejamento de experimentos a serem implantados utilizando pacotes do R e, posteriormente, irei apresentar uma função que elaborei para esse propósito. Será abordado um dos delineamentos experimentais mais utilizados no melhoramento florestal (<strong>DBC</strong>), de modo que o script possa ser utilizado com dados reais no cotidiano do pesquisador.</p>
+<pre class="r"><code>library(agridat)
+library(agricolae)
+library(desplot)
+library(tidyverse)</code></pre>
+<div id="delineamento-em-blocos-completos-casualizados-dbc" class="section level2">
+<h2>1. Delineamento em blocos completos casualizados (DBC)</h2>
+<pre class="r"><code># Ver a estrutura da função
+str(design.crd)</code></pre>
+<pre><code>## function (trt, r, serie = 2, seed = 0, kinds = &quot;Super-Duper&quot;, randomization = TRUE)</code></pre>
+<p><strong>Delineando o experimento:</strong></p>
+<ul>
+<li><p>O experimento planejado será composto por:</p>
+<ul>
+<li><strong><em>100 clones</em></strong><br />
+</li>
+<li><strong><em>6 repetições (blocos)</em></strong></li>
+</ul></li>
+</ul>
+<p><span style="color: red"><strong>Obs:</strong></span> <span style="color: blue"><strong>O planejamento pode ser utilizado para experimentos em parcelas lineares, quadradas/retangulares ou STP.</strong></span></p>
+<ul>
+<li>Configurando os nomes dos tratamentos e o nº de repetições (blocos)</li>
+</ul>
+<pre class="r"><code># Nomes dos tratamentos
+Trat &lt;- paste0(&quot;C&quot;, 1:100)
+
+# Número de repetições (blocos)
+Rep &lt;- 6</code></pre>
+<ul>
+<li>Planejamento do xperimento utilizando a função <code>design.crd</code> do pacote <code>{agricolae}</code></li>
+</ul>
+<pre class="r"><code># Realizando o sorteio e configurando o teste
+TC1 &lt;- design.crd(
+  trt = Trat,
+  r = Rep,
+  serie = 1,
+  randomization = T
+)
+
+# Checando os atributos de TC1
+cat(&quot;\nChecando os atributos de TC1\n\n&quot;)</code></pre>
+<pre><code>## 
+## Checando os atributos de TC1</code></pre>
+<pre class="r"><code>attributes(TC1)</code></pre>
+<pre><code>## $names
+## [1] &quot;parameters&quot; &quot;book&quot;</code></pre>
+<pre class="r"><code># Checando qual tipo de atributo é TC1
+cat(&quot;\nChecando qual tipo de atributo é TC1\n\n&quot;)</code></pre>
+<pre><code>## 
+## Checando qual tipo de atributo é TC1</code></pre>
+<pre class="r"><code>class(TC1)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code># Checando os objetos na lista
+cat(&quot;\nChecando os objetos na lista\n\n&quot;)</code></pre>
+<pre><code>## 
+## Checando os objetos na lista</code></pre>
+<pre class="r"><code>str(TC1)</code></pre>
+<pre><code>## List of 2
+##  $ parameters:List of 7
+##   ..$ design: chr &quot;crd&quot;
+##   ..$ trt   : chr [1:100] &quot;C1&quot; &quot;C2&quot; &quot;C3&quot; &quot;C4&quot; ...
+##   ..$ r     : num [1:100] 6 6 6 6 6 6 6 6 6 6 ...
+##   ..$ serie : num 1
+##   ..$ seed  : int -929375072
+##   ..$ kinds : chr &quot;Super-Duper&quot;
+##   ..$       : logi TRUE
+##  $ book      :&#39;data.frame&#39;:  600 obs. of  3 variables:
+##   ..$ plots: num [1:600] 11 12 13 14 15 16 17 18 19 20 ...
+##   ..$ r    : int [1:600] 1 1 1 1 1 1 1 1 1 1 ...
+##   ..$ Trat : chr [1:600] &quot;C3&quot; &quot;C4&quot; &quot;C61&quot; &quot;C58&quot; ...</code></pre>
+<ul>
+<li>Verificando o resultado <strong><em>sem</em></strong> testemunhas</li>
+</ul>
+<pre class="r"><code>head(TC1$book, 10)</code></pre>
+<pre><code>##    plots r Trat
+## 1     11 1   C3
+## 2     12 1   C4
+## 3     13 1  C61
+## 4     14 1  C58
+## 5     15 1 C100
+## 6     16 1  C52
+## 7     17 1  C36
+## 8     18 1   C7
+## 9     19 1  C72
+## 10    20 1  C90</code></pre>
+<ul>
+<li><strong>Inserindo testemunhas (controle)</strong></li>
+</ul>
+<pre class="r"><code># Inserindo uma testemunha (logicamente uma em cada bloco)
+TratC &lt;- c(Trat, &quot;Testemunha&quot;)
+
+TC1 &lt;-
+  design.crd(
+    trt = TratC,
+    r = Rep,
+    serie = 0,
+    randomization = T
+  )$book</code></pre>
+<p><strong>Resultado do planejamento do experimento</strong></p>
+<pre class="r"><code>head(TC1, 10)</code></pre>
+<pre><code>##    plots r TratC
+## 1      1 1   C51
+## 2      2 1    C5
+## 3      3 1   C79
+## 4      4 1   C31
+## 5      5 1   C47
+## 6      6 2   C79
+## 7      7 1   C41
+## 8      8 1   C74
+## 9      9 1   C30
+## 10    10 1    C6</code></pre>
+<ul>
+<li>Resumo dos dados com contagem dos tratamentos</li>
+</ul>
+<pre class="r"><code>TC1 %&gt;%
+  group_by(TratC) %&gt;%
+  summarise(n())</code></pre>
+<pre><code>## # A tibble: 101 x 2
+##    TratC `n()`
+##    &lt;chr&gt; &lt;int&gt;
+##  1 C1        6
+##  2 C10       6
+##  3 C100      6
+##  4 C11       6
+##  5 C12       6
+##  6 C13       6
+##  7 C14       6
+##  8 C15       6
+##  9 C16       6
+## 10 C17       6
+## # ... with 91 more rows</code></pre>
+<div id="croqui-experimento-planejado" class="section level3">
+<h3>1.1. Croqui experimento planejado</h3>
+<pre class="r"><code># Ordenando por bloco
+TC1 &lt;- TC1[order(TC1$r), ]
+
+# Criando linhas e colunas no conjunto de dados
+TC1$col &lt;- TC1$r
+TC1$row &lt;- rep(seq_along(unique(TratC)), Rep)
+
+# Ver atualização
+TC1 &lt;-
+  TC1 %&gt;%
+  rename(Parcela = plots,
+         Bloco = r,
+         Clone = TratC)
+head(TC1, 10)</code></pre>
+<pre><code>##    Parcela Bloco Clone col row
+## 1        1     1   C51   1   1
+## 2        2     1    C5   1   2
+## 3        3     1   C79   1   3
+## 4        4     1   C31   1   4
+## 5        5     1   C47   1   5
+## 7        7     1   C41   1   6
+## 8        8     1   C74   1   7
+## 9        9     1   C30   1   8
+## 10      10     1    C6   1   9
+## 11      11     1   C24   1  10</code></pre>
+<ul>
+<li>Plotando um rascunho do croqui com a função <code>desplot</code> do pacote <code>{desplot}</code></li>
+</ul>
+<pre class="r"><code>desplot(
+  form = Bloco ~ row + col,
+  data = TC1 %&gt;% mutate(Bloco = as.factor(Bloco), Clone = as.factor(Clone)),
+  text = Clone,
+  col = &quot;black&quot;,
+  col.text = &quot;black&quot;,
+  strip.cex = 1,
+  out1 = Bloco,
+  out2 = row,
+  cex = 2,
+  main = &quot;Delineamento em Blocos Casualizados&quot;,
+  gg = T
+) + 
+  coord_flip() +
+  theme(
+    title = element_text(face = &quot;bold&quot;, size = 40),
+    legend.key.size = unit(30, units = &quot;mm&quot;),
+    legend.text = element_text(size = 30)
+  )</code></pre>
+<p><img src="/english/post/Aula8_DoE_v1_files/figure-html/Croqui-1.png" width="2880" /></p>
+<p>“08 dezembro, 2021”</p>
+<ul>
+<li>Plotando o gráfico configurando camadas da função <code>ggplot</code> do pacote <code>{ggplot2}</code></li>
+</ul>
+<pre class="r"><code># Camada 1: Configurando o dataset e mapeando as variáveis &#39;row&#39; e &#39;col&#39;
+ggplot(TC1 %&gt;%
+         mutate(
+           Bloco = as.factor(Bloco),
+           col = as.factor(col),
+           row = as.factor(row)
+         ),
+       aes(x = col, y = row)) +
+# Camada 2: Mapeando Blocos por cores
+  geom_raster(aes(fill = Bloco)) +
+# Camada 3: Mapeando Clones para inserir &#39;labels&#39;
+  geom_text(aes(label = Clone), size = 2.5) +
+# Camada 4: Invertendo &#39;labels&#39; do eixo y
+  scale_y_discrete(limits = rev) +
+# Camada 5: Inserindo títulos
+  labs(
+    x = &quot;&quot;,
+    y = &quot;Ordem Material&quot;,
+    title = &quot;Planejamento Experimental&quot;,
+    subtitle = &quot;Aleatorização dos tratamentos no blocos&quot;,
+    caption = paste(&quot;Resultado do sorteio - &quot;, format(Sys.Date(), &quot;%d/%m/%Y&quot;))
+  ) +
+# Camada 6: Configurando tema
+  theme(axis.text.y = element_text(size = 8))</code></pre>
+<p><img src="/english/post/Aula8_DoE_v1_files/figure-html/plot%20croqui-1.png" width="576" /></p>
+</div>
+</div>
+<div id="planejamento-experimental-com-dados-reais" class="section level2">
+<h2>2. Planejamento experimental com dados reais</h2>
+<pre class="r"><code># Inserindo dados
+Mudas &lt;- openxlsx::read.xlsx(xlsxFile = &quot;Mudas.xlsx&quot;)
+head(Mudas, 10)</code></pre>
+<pre><code>##    Material N_Mudas
+## 1         1     252
+## 2         2     252
+## 3         3     252
+## 4         4     252
+## 5         5     252
+## 6         6     252
+## 7         7     252
+## 8         8     252
+## 9         9     252
+## 10       10     252</code></pre>
+<div id="criando-a-função-para-o-planejamento-de-plantio-planexp" class="section level3">
+<h3>2.1. Criando a função para o planejamento de plantio: <code>PlanExp</code></h3>
+<p><strong>Elaborado por:</strong> <a href="http://lattes.cnpq.br/0015960014138408">Marcio Araujo</a></p>
+<pre class="r"><code>PlanExp &lt;-
+  function(# Nº de Plantas na parcela
+    N_Parcela = 10,
+    
+    # Conjunto de dados (dataset)
+    dados = Mudas,
+    
+    # Nome da coluna no dataset com o Nº de mudas
+    ColMudas = &quot;N_Mudas&quot;,
+    
+    # Nome da coluna no dataset com a descrição do material a ser implantado
+    ColMaterial = &quot;Material&quot;,
+    
+    # Percentual mínimo de materiais à compor o próximo bloco
+    MinMaterial = 0.95) {
+    
+    # Inicialização do dataset
+    DataInit &lt;- dados %&gt;%
+      group_by(get(ColMaterial)) %&gt;%
+      summarise(get(ColMudas) - N_Parcela) %&gt;%
+      `colnames&lt;-`(c(ColMaterial, ColMudas))
+    
+    # Inicialização da contagem do número de blocos possíveis
+    Cont &lt;- 0
+    
+    # Loop para obtenção do Nº de blocos possíveis
+    repeat {
+      
+      # Primeira rodada
+      DataInit &lt;- DataInit %&gt;%
+        group_by(get(ColMaterial)) %&gt;%
+        summarise(get(ColMudas) - N_Parcela) %&gt;%
+        `colnames&lt;-`(c(ColMaterial, ColMudas))
+      
+      # Atualização do contador
+      Cont &lt;- Cont + 1
+      
+      # Substituindo valores negativos por zero
+      DataInit[which(DataInit[[ColMudas]] &lt; 0), ColMudas] &lt;- 0
+      
+      # Contagem do número de materiais com mudas
+      ContMaterial &lt;- DataInit %&gt;%
+        filter(get(ColMudas) &gt; 0) %&gt;%
+        nrow()
+      
+      # Condição para interromper o Loop
+      TotalMaterial &lt;- nrow(dados)
+      if ((ContMaterial / TotalMaterial) &lt; MinMaterial) {
+        break
+      }
+      
+    }
+    # Inserindo os blocos com os materiais sorteados/aleatorizados em uma lista
+    BlocoPlants &lt;- list()
+    for (i in seq_len(Cont)) {
+      for (j in i * N_Parcela) {
+        BlocoPlants[[i]] &lt;- dados %&gt;%
+          group_by(get(ColMaterial)) %&gt;%
+          summarise(get(ColMudas) - j) %&gt;%
+          `colnames&lt;-`(c(ColMaterial, &quot;N&quot;)) %&gt;%
+          filter(get(&quot;N&quot;) &gt; N_Parcela) %&gt;%
+          mutate(Bloco = i)
+        BlocoPlants[[i]] &lt;-
+          
+          # Obs: A aleatorização ocorre aqui!
+          BlocoPlants[[i]][sample(nrow(BlocoPlants[[i]]), replace = F), ]
+        BlocoPlants[[i]] &lt;- BlocoPlants[[i]]
+        
+      }
+    }
+    
+    # Identificando o material por &#39;row&#39;
+    for (i in seq_along(BlocoPlants)) {
+      BlocoPlants[[i]][, &quot;row&quot;] &lt;-
+        seq_along(BlocoPlants[[i]][[ColMaterial]])
+    }
+    
+    # Agrupando/empinhando os blocos e criando um data frame
+    Plan &lt;- bind_rows(BlocoPlants)
+    
+    # Obtendo um resumo dos materiais nos blocos
+    Resumo &lt;- Plan %&gt;%
+      group_by(Bloco) %&gt;%
+      summarise(Material = paste(Material, collapse = &quot;, &quot;))
+    
+    # Obtendo data frame com a sobra de materiais
+    Sobra &lt;- DataInit %&gt;%
+      `colnames&lt;-`(c(ColMaterial, &quot;Sobra de Mudas&quot;))
+    
+    # Informando os materiais a srem retornados
+    return(c(
+      cat(paste(&quot;Número de Blocos possíveis:&quot;), Cont),
+      list(
+        Planejamento = Plan,
+        Resumo = Resumo,
+        `N_Blocos` = Cont,
+        Sobra = Sobra,
+        N_Parcela = N_Parcela
+      )
+    ))
+  }</code></pre>
+</div>
+<div id="executando-a-função-e-obtendo-os-objetos" class="section level3">
+<h3>2.2. Executando a função e obtendo os objetos</h3>
+<pre class="r"><code>Exp &lt;- PlanExp(
+  N_Parcela = 16,
+  dados = Mudas,
+  ColMudas = &quot;N_Mudas&quot;,
+  ColMaterial = &quot;Material&quot;,
+  MinMaterial = 0.9
+)</code></pre>
+<pre><code>## Número de Blocos possíveis: 7</code></pre>
+</div>
+<div id="plotando-o-croqui" class="section level3">
+<h3>2.3. Plotando o croqui</h3>
+<pre class="r"><code># Camada 1: Configurando o dataset e mapeando as variáveis &#39;row&#39; e &#39;col&#39;
+Croqui &lt;- ggplot(
+  Exp$Planejamento %&gt;%
+    as.data.frame() %&gt;%
+    mutate(Bloco = as.factor(Bloco),
+           row = as.factor(row)),
+  aes(x = Bloco, y = row)
+) +
+  
+  # Camada 2: Mapeando Blocos por cores
+  geom_raster(aes(fill = Bloco)) +
+  
+  # Camada 3: Mapeando Material para inserir &#39;labels&#39;
+  geom_text(aes(label = Material),
+            size = 2.5) +
+  
+  # Camada 4: Invertendo &#39;labels&#39; do eixo y
+  scale_y_discrete(limits = rev) +
+  
+  # Camada 5: Inserindo títulos
+  labs(
+    x = &quot;&quot;,
+    y = &quot;Nº do Material&quot;,
+    title = &quot;Planejamento Experimental&quot;,
+    subtitle = paste(&quot;Aleatorização dos tratamentos no blocos\nNúmero de plantas na parcela:&quot;, Exp$N_Parcela),
+    caption = paste(&quot;Resultado do sorteio - &quot;, format(Sys.Date(), &quot;%d/%m/%Y&quot;))
+  ) +
+  
+  # Camada 6: Configurando tema
+  theme(axis.text.y = element_text(size = 8), axis.text.x = element_blank()) +
+  facet_wrap(~ Bloco, ncol = Exp$N_Blocos, scales = &quot;free_x&quot;)
+
+Croqui</code></pre>
+<p><img src="/english/post/Aula8_DoE_v1_files/figure-html/plot%20croqui%20Plan-1.png" width="768" /></p>
+<ul>
+<li><p><strong>Considerações Finais:</strong></p>
+<ul>
+<li>A</li>
+</ul></li>
+</ul>
+</div>
+<div id="salvando-a-figura" class="section level3">
+<h3>2.4. Salvando a figura</h3>
+<pre class="r"><code>ggsave(filename = &quot;Croqui.tiff&quot;, plot = Croqui, width = 8, height = 14)</code></pre>
+</div>
+<div id="exportando-os-arquivos-para-o-excel" class="section level3">
+<h3>2.5. Exportando os arquivos para o excel</h3>
+<pre class="r"><code>openxlsx::write.xlsx(Exp,
+                     file = paste0(&quot;Croqui_&quot;, format(Sys.Date(), &quot;%d_%m_%Y&quot;), &quot;.xlsx&quot;),
+                     overwrite = T)</code></pre>
+</div>
+</div>

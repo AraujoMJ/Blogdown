@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Marcio Araujo
+      |
+      Análise de Variância
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      Consultoria, conselhos e compartilhando conhecimento
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.35e77d74ec27f743c169cf1c4c9339cbcca3f960babea337348e065be3c549c7.css"
+    integrity="sha256-Ned9dOwn90PBac8cTJM5y8yj&#43;WC6vqM3NI4GW&#43;PFScc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/post/aula7_anova_v1/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Análise de Variância"/>
+<meta name="twitter:description" content="1. IntroduçãoDe acordo com Ramalho et. al, (2012), a análise de variância é o procedimento mais frequentemente utilizado na análise e interpretação de dados experimentais em ciências agrárias."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Análise de Variância",
+        "headline": "Análise de Variância",
+        "alternativeHeadline": "",
+        "description": "
+      
+        1. Introdução\rDe acordo com Ramalho et. al, (2012), a análise de variância é o procedimento mais frequentemente utilizado na análise e interpretação de dados experimentais em ciências agrárias.
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/example.com\/post\/aula7_anova_v1\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "copyrightYear" : "2021",
+        "dateCreated": "2021-12-07T11:55:12.00Z",
+        "datePublished": "2021-12-07T11:55:12.00Z",
+        "dateModified": "2021-12-07T11:55:12.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Marcio Araujo",
+            "url": "https://example.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/example.com\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "https://example.com/images/site-feature-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "https:\/\/example.com\/post\/aula7_anova_v1\/",
+        "wordCount" : "4257",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    .
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Início</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about/"
+              
+              title=""
+              >Sobre</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/contact/"
+              
+              title=""
+              >Contato</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    .
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/Araujo2.jpg" alt="profile picture" />
+        <h3 title=""><a href="/">Blog do Araujo</a></h3>
+        <div class="description">
+          <p>Consultoria, conselhos e compartilhando conhecimento</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://www.linkedin.com/in/marcio-araujo-aa419972/" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/AraujoMJ" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://www.instagram.com/marcio.araujo04" rel="me" aria-label="instagram" title="instagram">
+            <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="mailto:marcio_ok66@hotmail.com" rel="me" aria-label="e-mail" title="e-mail">
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2021
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      .
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Análise de Variância</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Tue, Dec 7, 2021
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">20-minute read</span>
+          </div>
+
+        
+      </div>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="introdução" class="section level2">
+<h2>1. Introdução</h2>
+<p>De acordo com <a href="#Referências">Ramalho et. al, (2012)</a>, a análise de variância é o procedimento mais frequentemente utilizado na análise e interpretação de dados experimentais em ciências agrárias. Esta técnica foi idealizada por <strong>Fisher</strong> no início do século XX e visa à <em>decomposição da soma de quadrados total</em> em componentes associados às fontes de variação previamente estabelecidas.</p>
+<p>Na pesquisa, utilizamos o <strong>delineamento experimental</strong> que, por sua vez, é o plano de distribuição dos tratamentos nas parcelas experimentais. Com isso, podemos identificar as <strong>fontes de variação</strong> em que a <em>soma de quadrados total</em> será decomposta.</p>
+<p>Em suma, os objetivos do delineamento experimental são:</p>
+<ul>
+<li>Permitir a estimativa do erro experimental</li>
+<li>Contribuir para aumentar a precisão dos experimentos</li>
+<li>Fornecer informações sobre o procedimento mais apropriado para proceder s testes de significância.</li>
+</ul>
+<p>De acordo com <a href="#Referências">Banzatto e Kronka, (2006)</a>, os pressupostos da análise de variância, para que as hipóteses postuladas sejam aceitas são:</p>
+<ul>
+<li><p><strong>Aditividade:</strong></p>
+<ul>
+<li>Os efeitos dos fatores que ocorrem no modelo matemático devem ser aditivos</li>
+</ul></li>
+<li><p><strong>Independência:</strong></p>
+<ul>
+<li>Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> devidos aos efeitos de fatores não controlados devem ser independentes.</li>
+<li>Isso implica que os efeitos de tratamentos sejam independentes, que não haja correlação entre eles.</li>
+<li>A <em>não independência</em> pode ocorrer quando os tratamentos são quantitativos, por exemplo, quando são níveis crescentes de adubação, inseticidas etc., ocasião em que deve ser realizada a <strong>análise de regressão.</strong></li>
+</ul></li>
+<li><p><strong>Homogeneidade de variâncias:</strong></p>
+<ul>
+<li>Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> devidos aos efeitos de fatores não controlados devem possuir uma variância comum <span class="math inline">\(\sigma^2\)</span>.</li>
+<li>Isso significa que a variabilidade das repetições de um tratamento deve ser semelhante à dos outros tratamentos, isto é, os tratamentos devem possuir variâncias homogêneas.</li>
+</ul></li>
+<li><p><strong>Normalidade:</strong></p>
+<ul>
+<li>Os erros ou desvios <span class="math inline">\(\epsilon_{ij}\)</span> devidos aos efeitos de fatores não controlados devem possuir uma <strong>distribuição normal de probabilidades</strong>.</li>
+<li>Os dados experimentais (<strong>amostras da população</strong>) devem se ajustar a uma distribuição normal de probabilidade.</li>
+</ul></li>
+</ul>
+</div>
+<div id="análise-de-variância" class="section level2">
+<h2>2. Análise de Variância</h2>
+<ul>
+<li><p>Instale os seguintes pacotes:</p>
+<ul>
+<li><code>lmerTest</code></li>
+<li><code>car</code></li>
+<li><code>emmeans</code></li>
+<li><code>multcomp</code></li>
+</ul></li>
+</ul>
+<pre class="r"><code>library(tidyverse) # Manipulação de dados
+library(lmerTest) # Realizar a análise de variância
+library(car)     # Obter a tabela da Anova corretamente
+library(emmeans) # Obter as estimativas do modelo (Médias ajustadas)
+library(multcomp) # Realizar as comparações múltiplas</code></pre>
+<ul>
+<li><p>Inserindo dados:</p></li>
+<li><p>O <strong>conjunto de dados</strong> consiste em:</p>
+<ul>
+<li><p>Um experimento conduzido em <strong>casa de vegetação</strong></p></li>
+<li><p><strong>Cultura:</strong> <span style="color: green"><strong>Eucalipto</strong></span></p></li>
+<li><p><strong>Material:</strong> Clones comerciais</p></li>
+<li><p><strong>Tratamentos:</strong></p>
+<ul>
+<li>Regimes de irrigação na parcela (R1 - Sem restrição hídrica, R2 - Com restrição hidrica e R3 - Com estresse hídrico)</li>
+<li>Mudas de clones de eucalipto na subparcela</li>
+</ul></li>
+<li><p>Nº de repetições/bloco: 6</p></li>
+<li><p>Nº de plantas por parcela: 1</p></li>
+<li><p><strong>Caracteres estudados:</strong> Evapotranspiração (ETP) e Diâmetro do coleto (DIAM)</p></li>
+</ul></li>
+</ul>
+<p>Fonte: <a href="https://repositorio.unesp.br/bitstream/handle/11449/180449/araujo_mj_dr_jabo.pdf?sequence=3&amp;isAllowed=y">Araujo, 2018</a></p>
+<pre class="r"><code>Dados &lt;- openxlsx::read.xlsx(&quot;DataSet2_v2.xlsx&quot;)
+head(Dados, 10)</code></pre>
+<pre><code>##    Planta Clone Regime Bloco    ETP DIAM
+## 1       1    C1     R1     1 45.700 6.70
+## 2       2    C2     R1     1 49.390 9.03
+## 3       3    C3     R1     1 46.920 7.24
+## 4       4    C4     R1     1 48.315 6.56
+## 5       5    C5     R1     1 47.600 7.11
+## 6       6    C6     R1     1 48.725 7.62
+## 7       7    C7     R1     1 40.990 6.58
+## 8       8    C8     R1     1 46.330 8.30
+## 9       9    C9     R1     1 48.005 8.31
+## 10     10   C10     R1     1 49.890 8.40</code></pre>
+<div id="ajuste-do-modelo-com-a-função-lm" class="section level3">
+<h3>2.1. Ajuste do modelo com a função <code>lm</code></h3>
+</div>
+<div id="verificando-efeito-da-interação" class="section level3">
+<h3>2.1.1. Verificando efeito da interação</h3>
+<div id="caractere-diam" class="section level4">
+<h4>2.1.1.1. Caractere <strong>DIAM</strong></h4>
+<pre class="r"><code># Ajustando o modelo
+lm1 &lt;-
+  lm(
+    DIAM ~ Bloco + Regime + Clone + Regime:Clone,
+    data = Dados %&gt;%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0(&quot;C&quot;,1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+
+  ## Usando `anova` do R base
+anova(lm1)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: DIAM
+##               Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Bloco          1   4.347  4.3466  3.4139   0.06663 .  
+## Regime         2  50.861 25.4306 19.9738 2.065e-08 ***
+## Clone          9 170.878 18.9864 14.9124 &lt; 2.2e-16 ***
+## Regime:Clone  18  23.361  1.2978  1.0194   0.44166    
+## Residuals    149 189.707  1.2732                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>  ## Usando `Anova` do pacote car
+Anova(lm1)</code></pre>
+<pre><code>## Anova Table (Type II tests)
+## 
+## Response: DIAM
+##               Sum Sq  Df F value    Pr(&gt;F)    
+## Bloco          4.347   1  3.4139   0.06663 .  
+## Regime        50.861   2 19.9738 2.065e-08 ***
+## Clone        170.878   9 14.9124 &lt; 2.2e-16 ***
+## Regime:Clone  23.361  18  1.0194   0.44166    
+## Residuals    189.707 149                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<ul>
+<li>Invertendo a ordem dos efeitos principais (Regime e Clone) com <strong>dados balanceados</strong></li>
+</ul>
+<pre class="r"><code># Ajustando o modelo
+lm1.1 &lt;-
+  lm(
+    DIAM ~ Bloco + Clone + Regime + Regime:Clone,
+    data = Dados %&gt;%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0(&quot;C&quot;,1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+  ## Usando `anova` do R base
+anova(lm1.1)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: DIAM
+##               Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Bloco          1   4.347  4.3466  3.4139   0.06663 .  
+## Clone          9 170.878 18.9864 14.9124 &lt; 2.2e-16 ***
+## Regime         2  50.861 25.4306 19.9738 2.065e-08 ***
+## Clone:Regime  18  23.361  1.2978  1.0194   0.44166    
+## Residuals    149 189.707  1.2732                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>  ## Usando `Anova` do pacote car
+Anova(lm1.1)</code></pre>
+<pre><code>## Anova Table (Type II tests)
+## 
+## Response: DIAM
+##               Sum Sq  Df F value    Pr(&gt;F)    
+## Bloco          4.347   1  3.4139   0.06663 .  
+## Clone        170.878   9 14.9124 &lt; 2.2e-16 ***
+## Regime        50.861   2 19.9738 2.065e-08 ***
+## Clone:Regime  23.361  18  1.0194   0.44166    
+## Residuals    189.707 149                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<ul>
+<li>Verificando quando há desbalanceamento</li>
+</ul>
+<pre class="r"><code># Ajustando o modelo
+lm1.2 &lt;-
+  lm(
+    DIAM ~ Bloco + Regime + Clone + Regime:Clone,
+    data = Dados[-1,] %&gt;%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0(&quot;C&quot;,1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+
+  ## Usando `anova` do R base
+anova(lm1.2)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: DIAM
+##               Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Bloco          1   3.913  3.9133  3.0530   0.08266 .  
+## Regime         2  51.871 25.9357 20.2341 1.705e-08 ***
+## Clone          9 169.318 18.8131 14.6773 &lt; 2.2e-16 ***
+## Regime:Clone  18  23.174  1.2875  1.0044   0.45821    
+## Residuals    148 189.704  1.2818                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>  ## Usando `Anova` do pacote car
+Anova(lm1.2)</code></pre>
+<pre><code>## Anova Table (Type II tests)
+## 
+## Response: DIAM
+##               Sum Sq  Df F value    Pr(&gt;F)    
+## Bloco          4.313   1  3.3650    0.0686 .  
+## Regime        50.240   2 19.5978 2.815e-08 ***
+## Clone        169.318   9 14.6773 &lt; 2.2e-16 ***
+## Regime:Clone  23.174  18  1.0044    0.4582    
+## Residuals    189.704 148                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<ul>
+<li>Invertendo a ordem dos efeitos principais (Regime e Clone) com <strong>dados DESbalanceados</strong></li>
+</ul>
+<pre class="r"><code># Ajustando o modelo
+lm1.3 &lt;-
+  lm(
+    DIAM ~ Bloco + Clone + Regime + Regime:Clone,
+    data = Dados[-1,] %&gt;%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0(&quot;C&quot;,1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+
+  ## Usando `anova` do R base
+anova(lm1.3)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: DIAM
+##               Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## Bloco          1   3.913  3.9133  3.0530   0.08266 .  
+## Clone          9 170.949 18.9943 14.8187 &lt; 2.2e-16 ***
+## Regime         2  50.240 25.1202 19.5978 2.815e-08 ***
+## Clone:Regime  18  23.174  1.2875  1.0044   0.45821    
+## Residuals    148 189.704  1.2818                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>  ## Usando `Anova` do pacote car
+Anova(lm1.3)</code></pre>
+<pre><code>## Anova Table (Type II tests)
+## 
+## Response: DIAM
+##               Sum Sq  Df F value    Pr(&gt;F)    
+## Bloco          4.313   1  3.3650    0.0686 .  
+## Clone        169.318   9 14.6773 &lt; 2.2e-16 ***
+## Regime        50.240   2 19.5978 2.815e-08 ***
+## Clone:Regime  23.174  18  1.0044    0.4582    
+## Residuals    189.704 148                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Notas:</strong></p>
+<ul>
+<li><p>A função <code>anova</code> do <strong>R base</strong> usa a soma de quadrados tipo I</p></li>
+<li><p>A função <code>Anova</code> pacote <strong><code>car</code></strong> utiliza a soma de quadrados tipo II ou III, a escolha do pesquisador.</p></li>
+<li><p>Quando os dados são balanceados, a tabela da anova é a mesma para <code>anova</code> e <code>Anova</code>, contudo, quando há desbalanceamento, isto é, ocorre ortogonalidade, haverá diferenças e, a função <code>Anova</code> deve ser preferida.</p></li>
+<li><p><strong>Conclusões:</strong></p>
+<ul>
+<li>Os efeitos de <strong>Clone</strong> e <strong>Regime de Irrigação (RI)</strong> são significativos (alpha &lt; 0,001), portanto, rejeita-se <span class="math inline">\(H_0\)</span>.</li>
+<li>Pelo menos dois clones diferem-se entre si, na média, para o caractere DIAM</li>
+<li>O <strong>RI</strong> afeta de maneira diferenciada o desempenho das plantas para DIAM.</li>
+<li>A interação Clone x RI é não significativa, portanto, são independentes para o DIAM das plantas durante o desenvolvimento das mudas. Com isso, as comparaçõe múltiplas devem ser realizadas para RI e clone independentemente.</li>
+</ul></li>
+</ul>
+</div>
+<div id="caractere-etp" class="section level4">
+<h4>2.1.1.2. Caractere <strong>ETP</strong></h4>
+<pre class="r"><code># Ajustando o modelo
+lm2 &lt;-
+  lm(
+    ETP ~ Bloco + Regime + Clone + Regime:Clone,
+    data = Dados %&gt;%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0(&quot;C&quot;,1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+
+  ## Usando `Anova` do pacote car
+Anova(lm2)</code></pre>
+<pre><code>## Anova Table (Type II tests)
+## 
+## Response: ETP
+##               Sum Sq  Df   F value    Pr(&gt;F)    
+## Bloco            0.4   1    0.1413    0.7075    
+## Regime       10883.9   2 2088.4917 &lt; 2.2e-16 ***
+## Clone          643.8   9   27.4508 &lt; 2.2e-16 ***
+## Regime:Clone   155.3  18    3.3122 2.881e-05 ***
+## Residuals      388.2 149                        
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Quanto ao caractere <strong>ETP</strong>, a interação Clone x RI foi significativa. Portanto, a evapotranspiração das plantas depende do material genético e em qual regime de irrigação está submetido. Com isso, devemos desdobrar a interação, conforme veremos adiante.</p>
+</div>
+</div>
+<div id="comparações-múltiplas" class="section level3">
+<h3>2.1.2. Comparações múltiplas</h3>
+<div id="caractere-diam-1" class="section level4">
+<h4>2.1.2.1. Caractere <strong>DIAM</strong></h4>
+<ul>
+<li>Primeiramente iremos obter as médias ajustadas com a função <code>emmeans</code></li>
+</ul>
+<pre class="r"><code># Especificando o efeito
+
+  ## Regime
+emm_lm1.Reg &lt;-
+  emmeans::emmeans(lm1, specs = ~ Regime)
+emm_lm1.Reg</code></pre>
+<pre><code>##  Regime emmean    SE  df lower.CL upper.CL
+##  R1       8.23 0.146 149     7.94     8.52
+##  R2       8.08 0.146 149     7.79     8.36
+##  R3       7.03 0.146 149     6.75     7.32
+## 
+## Results are averaged over the levels of: Clone 
+## Confidence level used: 0.95</code></pre>
+<pre class="r"><code>  ## Clone
+emm_lm1.Clone &lt;-
+  emmeans::emmeans(lm1, specs = ~ Clone)
+emm_lm1.Clone</code></pre>
+<pre><code>##  Clone emmean    SE  df lower.CL upper.CL
+##  C1      6.06 0.266 149     5.53     6.58
+##  C2      8.10 0.266 149     7.58     8.63
+##  C3      7.57 0.266 149     7.04     8.09
+##  C4      7.13 0.266 149     6.61     7.66
+##  C5      8.03 0.266 149     7.50     8.55
+##  C6      8.80 0.266 149     8.28     9.33
+##  C7      6.34 0.266 149     5.82     6.87
+##  C8      8.59 0.266 149     8.07     9.12
+##  C9      7.95 0.266 149     7.43     8.48
+##  C10     9.23 0.266 149     8.70     9.75
+## 
+## Results are averaged over the levels of: Regime 
+## Confidence level used: 0.95</code></pre>
+<ul>
+<li>Realizando as comparações com a função <code>cld</code></li>
+</ul>
+<pre class="r"><code># Comparações múltiplas para Regime: Inserindo letras
+comp_lm1.Reg &lt;- cld(emm_lm1.Reg, Letters = letters, reversed = T, adjust = &quot;tukey&quot;)</code></pre>
+<pre><code>## Note: adjust = &quot;tukey&quot; was changed to &quot;sidak&quot;
+## because &quot;tukey&quot; is only appropriate for one set of pairwise comparisons</code></pre>
+<pre class="r"><code>comp_lm1.Reg</code></pre>
+<pre><code>##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       8.23 0.146 149     7.88     8.58  a    
+##  R2       8.08 0.146 149     7.72     8.43  a    
+##  R3       7.03 0.146 149     6.68     7.39   b   
+## 
+## Results are averaged over the levels of: Clone 
+## Confidence level used: 0.95 
+## Conf-level adjustment: sidak method for 3 estimates 
+## P value adjustment: tukey method for comparing a family of 3 estimates 
+## significance level used: alpha = 0.05</code></pre>
+<pre class="r"><code># Comparações múltiplas para Clones: Inserindo letras
+comp_lm1.Clone &lt;- cld(emm_lm1.Clone, Letters = letters, reversed = T, adjust = &quot;sidak&quot;)
+comp_lm1.Clone</code></pre>
+<pre><code>##  Clone emmean    SE  df lower.CL upper.CL .group
+##  C10     9.23 0.266 149     8.47     9.98  a    
+##  C6      8.80 0.266 149     8.05     9.56  ab   
+##  C8      8.59 0.266 149     7.84     9.35  ab   
+##  C2      8.10 0.266 149     7.35     8.86  abc  
+##  C5      8.03 0.266 149     7.27     8.78  abc  
+##  C9      7.95 0.266 149     7.20     8.71   bc  
+##  C3      7.57 0.266 149     6.81     8.32   bcd 
+##  C4      7.13 0.266 149     6.38     7.89    cde
+##  C7      6.34 0.266 149     5.58     7.10     de
+##  C1      6.06 0.266 149     5.30     6.81      e
+## 
+## Results are averaged over the levels of: Regime 
+## Confidence level used: 0.95 
+## Conf-level adjustment: sidak method for 10 estimates 
+## P value adjustment: sidak method for 45 tests 
+## significance level used: alpha = 0.05</code></pre>
+<p>Podemos observar que o regime de irrigação mais restritivo (R3) afeta negativamente o diâmetro das plantas. Isto é o esperado, uma vez que, a restrição hídrica acarreta em disturbio na atividade fisiológica da planta e, consequentemente compromente no metabolismo e mecanismo de alocação de biomassa. Portanto, o regime R3 foi um ambiente de estresse para as plantas.</p>
+<ul>
+<li>Análise Gráfica com <code>ggplot2</code></li>
+</ul>
+<pre class="r"><code># Obtendo o data frame
+Clone &lt;- as.data.frame(comp_lm1.Clone) %&gt;%
+  
+  # Ordenando os levels por médias
+  mutate(Clone = factor(Clone, levels = Clone)) %&gt;%
+  
+  # Renomeando variável: função `rename` do tidyverse
+  rename(DIAM = emmean)
+
+# Criando o gráfico
+# Camada 1: Configurando as coordenadas
+ggplot(Clone, aes(x = Clone, y = DIAM)) +
+  
+  # Camada 2: Inserindo e configurando as barras
+  geom_bar(stat = &quot;identity&quot;, alpha = 0.7) +
+  
+  # Camada 3: Inserindo as letras
+  geom_label(aes(label = .group), nudge_y = 1.5) +
+  
+  # Camada 4: Inserindo barra de intervalo de confiança
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
+                width = 0.2,
+                color = &quot;grey20&quot;) +
+  
+  # Camada 5: Configurando o tema
+  theme_classic() +
+  
+  # Camada 6: Configurando títulos
+  labs(x = &quot;Clones&quot;, y = &quot;Diâmetro (mm)&quot;) +
+  
+  # Camada 7: Anotando no gráfico: Função `annotate`
+  annotate(
+    geom = &quot;text&quot;,
+    x = 9,
+    y = 10,
+    label = expression(paste(alpha, &quot; = 0,05&quot;))
+  )</code></pre>
+<p><img src="/english/post/Aula7_Anova_v1_files/figure-html/ggplot2-1.png" width="672" /></p>
+<p>O Clone <span style="color: blue"><strong>C10</strong></span> teve DIAM estatisticamente maior em relação aos clones C1, C7, C4, C3 e C9. Por outro lado, o clone <span style="color: red"><strong>C1</strong></span> teve o menor DIAM dentre os clones (porém, não diferiu dos clones C7 e C4).</p>
+</div>
+<div id="caractere-etp-1" class="section level4">
+<h4>2.1.2.2. Caractere <strong>ETP</strong></h4>
+<p>Vimos que há interação RI x Clone significativa para o caractere ETP. Por isso, temos que estudar/comparar o desempenho dos clones quanto à evapotranspiração dentro de cada regime de irrigação, assim como, checar se os regimes de irrigação afetam cada clone para esse caractere.</p>
+<ul>
+<li>Desdobramento de interação: Clone dentro de Regime</li>
+</ul>
+<pre class="r"><code># Configurando o desdobramento
+emm_lm2.1 &lt;-
+  emmeans(lm2, specs = ~ Clone | Regime , adjust = &quot;sidak&quot;)
+
+# Comparações múltiplas: Inserindo letras
+comp_lm2.1 &lt;- cld(emm_lm2.1, Letters = letters, reversed = T)
+comp_lm2.1</code></pre>
+<pre><code>## Regime = R1:
+##  Clone emmean    SE  df lower.CL upper.CL .group
+##  C10     49.3 0.659 149     47.4     51.1  a    
+##  C6      48.3 0.659 149     46.5     50.2  ab   
+##  C9      47.6 0.659 149     45.7     49.4  ab   
+##  C5      47.1 0.659 149     45.2     49.0  ab   
+##  C4      47.0 0.659 149     45.1     48.8  ab   
+##  C2      46.6 0.659 149     44.7     48.5  ab   
+##  C3      45.8 0.659 149     43.9     47.7   b   
+##  C8      45.6 0.659 149     43.7     47.4   b   
+##  C1      41.6 0.659 149     39.8     43.5    c  
+##  C7      40.1 0.659 149     38.2     42.0    c  
+## 
+## Regime = R2:
+##  Clone emmean    SE  df lower.CL upper.CL .group
+##  C10     39.8 0.659 149     37.9     41.6  a    
+##  C6      39.7 0.659 149     37.8     41.6  a    
+##  C4      39.7 0.659 149     37.8     41.5  a    
+##  C5      39.3 0.659 149     37.4     41.1  a    
+##  C9      39.0 0.659 149     37.1     40.9  a    
+##  C8      38.8 0.659 149     36.9     40.6  a    
+##  C2      38.6 0.659 149     36.8     40.5  a    
+##  C3      36.8 0.659 149     34.9     38.7  ab   
+##  C1      34.6 0.659 149     32.8     36.5   bc  
+##  C7      32.8 0.659 149     30.9     34.6    c  
+## 
+## Regime = R3:
+##  Clone emmean    SE  df lower.CL upper.CL .group
+##  C9      27.5 0.659 149     25.7     29.4  a    
+##  C2      27.5 0.659 149     25.6     29.4  a    
+##  C10     27.4 0.659 149     25.5     29.3  a    
+##  C8      27.4 0.659 149     25.5     29.2  a    
+##  C6      27.3 0.659 149     25.5     29.2  a    
+##  C3      27.3 0.659 149     25.5     29.2  a    
+##  C5      27.0 0.659 149     25.2     28.9  a    
+##  C4      26.8 0.659 149     25.0     28.7  a    
+##  C1      25.5 0.659 149     23.7     27.4  a    
+##  C7      25.3 0.659 149     23.5     27.2  a    
+## 
+## Confidence level used: 0.95 
+## Conf-level adjustment: sidak method for 10 estimates 
+## P value adjustment: tukey method for comparing a family of 10 estimates 
+## significance level used: alpha = 0.05</code></pre>
+<p>Observamos que há diferenças entre os clones para a evapotranspiração somente nos regimes de irrigação R1 e R2. Contudo, em R3, a intensidade do estresse afeta demasiadamente a atividade fisiológica das plantas, inibindo a diferença entre os genótipos.</p>
+<ul>
+<li>Desdobramento de interação: Regime dentro de Clones</li>
+</ul>
+<pre class="r"><code># Configurando o desdobramento
+emm_lm2.2 &lt;-
+  emmeans(lm2, specs = ~ Regime | Clone , adjust = &quot;sidak&quot;)
+
+# Comparações múltiplas: Inserindo letras
+comp_lm2.2 &lt;- cld(emm_lm2.2, Letters = letters, reversed = T)
+comp_lm2.2</code></pre>
+<pre><code>## Clone = C1:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       41.6 0.659 149     40.1     43.2  a    
+##  R2       34.6 0.659 149     33.0     36.2   b   
+##  R3       25.5 0.659 149     23.9     27.1    c  
+## 
+## Clone = C2:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       46.6 0.659 149     45.0     48.2  a    
+##  R2       38.6 0.659 149     37.1     40.2   b   
+##  R3       27.5 0.659 149     25.9     29.1    c  
+## 
+## Clone = C3:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       45.8 0.659 149     44.2     47.4  a    
+##  R2       36.8 0.659 149     35.2     38.4   b   
+##  R3       27.3 0.659 149     25.7     28.9    c  
+## 
+## Clone = C4:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       47.0 0.659 149     45.4     48.5  a    
+##  R2       39.7 0.659 149     38.1     41.2   b   
+##  R3       26.8 0.659 149     25.3     28.4    c  
+## 
+## Clone = C5:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       47.1 0.659 149     45.5     48.7  a    
+##  R2       39.3 0.659 149     37.7     40.9   b   
+##  R3       27.0 0.659 149     25.4     28.6    c  
+## 
+## Clone = C6:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       48.3 0.659 149     46.7     49.9  a    
+##  R2       39.7 0.659 149     38.1     41.3   b   
+##  R3       27.3 0.659 149     25.7     28.9    c  
+## 
+## Clone = C7:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       40.1 0.659 149     38.5     41.7  a    
+##  R2       32.8 0.659 149     31.2     34.4   b   
+##  R3       25.3 0.659 149     23.7     26.9    c  
+## 
+## Clone = C8:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       45.6 0.659 149     44.0     47.1  a    
+##  R2       38.8 0.659 149     37.2     40.3   b   
+##  R3       27.4 0.659 149     25.8     28.9    c  
+## 
+## Clone = C9:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       47.6 0.659 149     46.0     49.2  a    
+##  R2       39.0 0.659 149     37.4     40.6   b   
+##  R3       27.5 0.659 149     26.0     29.1    c  
+## 
+## Clone = C10:
+##  Regime emmean    SE  df lower.CL upper.CL .group
+##  R1       49.3 0.659 149     47.7     50.8  a    
+##  R2       39.8 0.659 149     38.2     41.3   b   
+##  R3       27.4 0.659 149     25.8     29.0    c  
+## 
+## Confidence level used: 0.95 
+## Conf-level adjustment: sidak method for 3 estimates 
+## P value adjustment: tukey method for comparing a family of 3 estimates 
+## significance level used: alpha = 0.05</code></pre>
+<p>Os regimes de irrigação afetaram de maneira semelhante os clones quanto à evapotranspiração. Portanto, na medida em que a disponibilidade hídrica se tornara mais escassa, menor a ETP dos genótipos.</p>
+<pre class="r"><code># Plotando o desdobramento da interação
+plot_lm2 &lt;- plot(emm_lm2.1, comparison = T) +
+  
+# Configurando os &quot;labels&quot;
+  labs(x = &quot;ETP&quot;, y = &quot;Clones&quot;, title = &quot;Interação Regime vs Clone&quot;) +
+  
+# Configurando o tema
+  theme(
+    strip.text.y = element_text(size = 12),
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12)
+  ) +
+  
+# Alterando o tema
+theme_bw()
+plot_lm2</code></pre>
+<p><img src="/english/post/Aula7_Anova_v1_files/figure-html/Comp%20mult%204-1.png" width="960" /></p>
+<ul>
+<li>Salvando o gráfico</li>
+</ul>
+<pre class="r"><code>ggsave(filename = &quot;plot_lm2.png&quot;, plot = plot_lm2)</code></pre>
+<pre><code>## Saving 7 x 5 in image</code></pre>
+</div>
+</div>
+<div id="ajuste-do-modelo-com-a-função-lmer-parcela-subdividida" class="section level3">
+<h3>2.2. Ajuste do modelo com a função <code>lmer</code>: <strong>Parcela Subdividida</strong></h3>
+<p>Até aqui consideramos o experimento como delineado em blocos completamente casualizados. No entanto, o delineamento correto é em <em>parcelas subdivididas</em>, sendo planejado como Regime de irrigação na parcela (casualizado dentro do bloco) e Clone na subparcela (casualizado dentro de Regime de irrigação). Brevemente, esse arranjo contém dois tipos de erro:</p>
+<ul>
+<li><p><strong>Erro a:</strong></p>
+<ul>
+<li><p>Consiste no resíduo entre parcelas, no presente caso, é o efeito da interação Bloco:Regime.</p></li>
+<li><p>Nesse caso, os efeitos de Bloco e Regime (Parcela) são testados com o <strong>Erro a</strong></p></li>
+</ul></li>
+<li><p><strong>Erro b:</strong></p>
+<ul>
+<li>Consiste no resíduo dentro da parcela, ou erro puro.</li>
+</ul></li>
+</ul>
+<p>Para modelar isso, utilizaremos a função <code>lmer</code>, da seguinte maneira:</p>
+<pre class="r"><code>lmer1 &lt;-
+  lmerTest::lmer(
+    DIAM ~ Bloco + Regime + (1|Bloco:Regime) + Clone + Regime:Clone,
+    data = Dados[-1,] %&gt;%
+      mutate(Bloco = as.factor(Bloco), Regime = as.factor(Regime), Clone = as.factor(Clone))
+  )
+
+anova(lmer1, ddf = &quot;Kenward-Roger&quot;)</code></pre>
+<pre><code>## Type III Analysis of Variance Table with Kenward-Roger&#39;s method
+##               Sum Sq Mean Sq NumDF   DenDF F value    Pr(&gt;F)    
+## Bloco         16.402  3.2804     5   9.995  2.9257  0.069891 .  
+## Regime        31.449 15.7247     2   9.997 14.0248  0.001255 ** 
+## Clone        169.413 18.8237     9 134.081 16.7888 &lt; 2.2e-16 ***
+## Regime:Clone  22.819  1.2677    18 134.076  1.1307  0.329906    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>lmer1 &lt;-
+  lmerTest::lmer(
+    DIAM ~ Regime + Bloco + (1|Bloco:Regime) + Clone + Regime:Clone,
+    data = Dados[-1,] %&gt;%
+      mutate(Bloco = as.factor(Bloco), Regime = as.factor(Regime), Clone = as.factor(Clone))
+  )
+
+anova(lmer1, ddf = &quot;Kenward-Roger&quot;)</code></pre>
+<pre><code>## Type III Analysis of Variance Table with Kenward-Roger&#39;s method
+##               Sum Sq Mean Sq NumDF   DenDF F value    Pr(&gt;F)    
+## Regime        31.449 15.7247     2   9.997 14.0248  0.001255 ** 
+## Bloco         16.402  3.2804     5   9.995  2.9257  0.069891 .  
+## Clone        169.413 18.8237     9 134.081 16.7888 &lt; 2.2e-16 ***
+## Regime:Clone  22.819  1.2677    18 134.076  1.1307  0.329906    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Notas:</strong></p>
+<ul>
+<li>Observe os graus de liberdade do denominador (DenDF na tabela da ANOVA)<br />
+</li>
+<li>A função <code>lmer</code> utiliza a soma de quadrados tipo 3 para compor a tabela da ANOVA. Portanto, a ordem em que os efeitos entram no modelo, não importa.</li>
+</ul>
+<div id="comparações-múltiplas-1" class="section level4">
+<h4>2.2.1. Comparações múltiplas</h4>
+<pre class="r"><code># Especificando o efeito
+
+## Regime
+emm_lmer1.Reg &lt;-
+  emmeans::emmeans(lmer1, specs = ~ Regime)
+emm_lmer1.Reg</code></pre>
+<pre><code>##  Regime emmean    SE    df lower.CL upper.CL
+##  R1       8.22 0.174 10.17     7.83     8.61
+##  R2       8.08 0.173  9.91     7.69     8.46
+##  R3       7.03 0.173  9.91     6.65     7.42
+## 
+## Results are averaged over the levels of: Bloco, Clone 
+## Degrees-of-freedom method: kenward-roger 
+## Confidence level used: 0.95</code></pre>
+<pre class="r"><code>## Clone
+emm_lmer1.Clone &lt;-
+  emmeans::emmeans(lmer1, specs = ~ Clone)
+emm_lmer1.Clone</code></pre>
+<pre><code>##  Clone emmean    SE  df lower.CL upper.CL
+##  C1      6.02 0.265 132     5.50     6.55
+##  C10     9.23 0.257 131     8.72     9.73
+##  C2      8.10 0.257 131     7.60     8.61
+##  C3      7.57 0.257 131     7.06     8.07
+##  C4      7.13 0.257 131     6.63     7.64
+##  C5      8.03 0.257 131     7.52     8.53
+##  C6      8.80 0.257 131     8.30     9.31
+##  C7      6.34 0.257 131     5.83     6.85
+##  C8      8.59 0.257 131     8.08     9.10
+##  C9      7.95 0.257 131     7.44     8.46
+## 
+## Results are averaged over the levels of: Regime, Bloco 
+## Degrees-of-freedom method: kenward-roger 
+## Confidence level used: 0.95</code></pre>
+<ul>
+<li>Realizando as comparações com a função <code>cld</code></li>
+</ul>
+<pre class="r"><code># Comparações múltiplas para Regime: Inserindo letras
+comp_lmer1.Reg &lt;-
+  cld(
+    emm_lmer1.Reg,
+    Letters = letters,
+    reversed = T,
+    adjust = &quot;tukey&quot;
+  )</code></pre>
+<pre><code>## Note: adjust = &quot;tukey&quot; was changed to &quot;sidak&quot;
+## because &quot;tukey&quot; is only appropriate for one set of pairwise comparisons</code></pre>
+<pre class="r"><code>comp_lmer1.Reg</code></pre>
+<pre><code>##  Regime emmean    SE    df lower.CL upper.CL .group
+##  R1       8.22 0.174 10.17     7.73     8.72  a    
+##  R2       8.08 0.173  9.91     7.58     8.57  a    
+##  R3       7.03 0.173  9.91     6.54     7.53   b   
+## 
+## Results are averaged over the levels of: Bloco, Clone 
+## Degrees-of-freedom method: kenward-roger 
+## Confidence level used: 0.95 
+## Conf-level adjustment: sidak method for 3 estimates 
+## P value adjustment: tukey method for comparing a family of 3 estimates 
+## significance level used: alpha = 0.05</code></pre>
+<pre class="r"><code># Comparações múltiplas para Clones: Inserindo letras
+comp_lmer1.Clone &lt;-
+  cld(
+    emm_lmer1.Clone,
+    Letters = letters,
+    reversed = T,
+    adjust = &quot;sidak&quot;
+  )
+comp_lmer1.Clone</code></pre>
+<pre><code>##  Clone emmean    SE  df lower.CL upper.CL .group
+##  C10     9.23 0.257 131     8.49     9.96  a    
+##  C6      8.80 0.257 131     8.07     9.54  ab   
+##  C8      8.59 0.257 131     7.86     9.32  abc  
+##  C2      8.10 0.257 131     7.37     8.83  abcd 
+##  C5      8.03 0.257 131     7.30     8.76   bcd 
+##  C9      7.95 0.257 131     7.22     8.68   bcd 
+##  C3      7.57 0.257 131     6.83     8.30    cd 
+##  C4      7.13 0.257 131     6.40     7.87     de
+##  C7      6.34 0.257 131     5.61     7.07      e
+##  C1      6.02 0.265 132     5.27     6.78      e
+## 
+## Results are averaged over the levels of: Regime, Bloco 
+## Degrees-of-freedom method: kenward-roger 
+## Confidence level used: 0.95 
+## Conf-level adjustment: sidak method for 10 estimates 
+## P value adjustment: sidak method for 45 tests 
+## significance level used: alpha = 0.05</code></pre>
+</div>
+</div>
+<div id="gráfico-de-interação" class="section level3">
+<h3>2.3. Gráfico de interação</h3>
+<pre class="r"><code># Obtendo médias
+Medias &lt;- Dados %&gt;%
+  group_by(Regime, Clone) %&gt;%
+  summarise(DIAM = mean(DIAM, na.rm = T))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Regime&#39;. You can override using the `.groups` argument.</code></pre>
+<pre class="r"><code># Camada 1: Configurando as coordenadas e mapeando as variáveis Regime e Clone
+ggplot(Medias, aes(x = Regime, y = DIAM)) +
+  
+# Camada 2: Inserindo linhas e mapeando Clone por cores
+  geom_line(aes(group = Clone, colour = Clone))</code></pre>
+<p><img src="/english/post/Aula7_Anova_v1_files/figure-html/Interacao-1.png" width="672" /></p>
+<p>Na figura, observamos um tendência de interação RI x Clone. Contudo, como pudemos observar, estatísticamente não há essa interação. A interpretação dessas duas verificações é que, a interação observada via análise gráfica é mais provável ser efeito do acaso ou de algum fator não descrito no modelo, do que dos efeitos de RI e Clone propriamente.</p>
+</div>
+</div>
+<div id="Referências" class="section level2">
+<h2></h2>
+</div>
+<div id="referências" class="section level2">
+<h2>Referências</h2>
+<p>Ramalho, M. A. P.; Ferreira, D. F.; Oliveira, A. C. <strong>Experimentação em genética e melhoramento de plantas</strong>. 3ª ed. 2012. 328 p.</p>
+<p>Banzatto, D. A; Kronka, S. N. <strong>Experimentação agrícola</strong>. 4ª ed. 2006. 237 p.</p>
+</div>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    <div id="fb_comments_container">
+          <h2>comments</h2>
+          <script src="https://utteranc.es/client.js"
+        repo="AraujoMJ/blogdown"
+        issue-term="pathname"
+        label="😄!"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        </div>
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2021
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></body>
+</html>

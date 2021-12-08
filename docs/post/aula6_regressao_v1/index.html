@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Marcio Araujo
+      |
+      Análise de Regressão
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      Consultoria, conselhos e compartilhando conhecimento
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/main.min.35e77d74ec27f743c169cf1c4c9339cbcca3f960babea337348e065be3c549c7.css"
+    integrity="sha256-Ned9dOwn90PBac8cTJM5y8yj&#43;WC6vqM3NI4GW&#43;PFScc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/post/aula6_regressao_v1/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://example.com/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Análise de Regressão"/>
+<meta name="twitter:description" content="1. IntroduçãoAnálise de regressão é uma técnica estatística que permite examinar e modelar a relação entre variáveis. A análise de regressão é amplamente aplicada em várias áreas do conhecimento (engenharias, ciências da física química, economia, administração, ciências biológicas e da vida, ciências sociais etc."/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Análise de Regressão",
+        "headline": "Análise de Regressão",
+        "alternativeHeadline": "",
+        "description": "
+      
+        1. Introdução\rAnálise de regressão é uma técnica estatística que permite examinar e modelar a relação entre variáveis. A análise de regressão é amplamente aplicada em várias áreas do conhecimento (engenharias, ciências da física química, economia, administração, ciências biológicas e da vida, ciências sociais etc.
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/example.com\/post\/aula6_regressao_v1\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "copyrightYear" : "2021",
+        "dateCreated": "2021-12-05T11:55:12.00Z",
+        "datePublished": "2021-12-05T11:55:12.00Z",
+        "dateModified": "2021-12-05T11:55:12.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Marcio Araujo",
+            "url": "https://example.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/example.com\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "https://example.com/images/site-feature-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "https:\/\/example.com\/post\/aula6_regressao_v1\/",
+        "wordCount" : "6492",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    .
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/"
+              
+              title=""
+              >Início</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/about/"
+              
+              title=""
+              >Sobre</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/contact/"
+              
+              title=""
+              >Contato</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    .
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/images/Araujo2.jpg" alt="profile picture" />
+        <h3 title=""><a href="/">Blog do Araujo</a></h3>
+        <div class="description">
+          <p>Consultoria, conselhos e compartilhando conhecimento</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://www.linkedin.com/in/marcio-araujo-aa419972/" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/AraujoMJ" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://www.instagram.com/marcio.araujo04" rel="me" aria-label="instagram" title="instagram">
+            <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="mailto:marcio_ok66@hotmail.com" rel="me" aria-label="e-mail" title="e-mail">
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2021
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      .
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Análise de Regressão</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Sun, Dec 5, 2021
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">31-minute read</span>
+          </div>
+
+        
+      </div>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="introdução" class="section level2">
+<h2>1. Introdução</h2>
+<p><strong>Análise de regressão</strong> é uma técnica <strong><em>estatística</em></strong> que permite examinar e modelar a <span style="color: green"><strong>relação entre variáveis</strong></span>. A análise de regressão é amplamente aplicada em várias áreas do conhecimento (engenharias, ciências da física química, economia, administração, ciências biológicas e da vida, ciências sociais etc.).<br />
+</p>
+<p>Em um contexto geral, em uma análise de regressão, determinamos o grau em que as variáveis independentes (Variável preditora ou regressora <strong>x</strong>) influenciam as variáveis dependentes (Vaiável resposta <strong>y</strong>). Por exemplo, utilizamos uma análise de regressão para determinar como o crescimento das plantas de um clone comercial de eucalipto, medido em <span style="color: blue"><strong>altura</strong></span> (<strong>y</strong>), é influenciado ou está intimamente relacionado às <span style="color: red"><strong>doses</strong></span> de um determinado fertilizante (<strong>x</strong>). Outro exemplo, utilizamos um modelo de regressão para obtemos uma equação hipsiométrica para a predição de volume de madeira com base em dados de <strong>DAP</strong> e <strong>Altura</strong> mensurados na floresta.</p>
+<p>Para mais detalhes sobre análise de regressão, ver <a href="#Referências">Montgomery <em>et. al</em> (2021)</a></p>
+</div>
+<div id="modelo-de-regressão" class="section level2">
+<h2>2. Modelo de Regressão</h2>
+<p><strong>Notas:</strong></p>
+<ul>
+<li><p>Nesta aula utilizaremos algumas expressões para escrever algumas equações. Para conhecer algumas sintaxes dessas espressões, acesse a lista em <a href="https://stat.ethz.ch/R-manual/R-devel/library/grDevices/html/plotmath.html">Mathematical Annotation in R</a><br />
+</p></li>
+<li><p>Baixem o pacote <code>equatiomatic</code></p></li>
+</ul>
+<pre class="r"><code># install.packages(&quot;equatiomatic&quot;)</code></pre>
+<p>Podemos definir um modelo de regressão como uma forma algébrica de descrever a variação de uma variável resposta <strong>y</strong> (dependente) em relação a uma variável peditora ou regressora <strong>x</strong> (independente). Suponhamos, por exemplo, ver como as variáveis ‘x’ e ‘y’ estão associadas, isto é, para cada valor de ‘x’ existe um valor de ‘y’. Isso permite averiguar: <strong>para cada variação de ‘x’, qual o valor de ‘y’?</strong>.</p>
+<p>Para isso, vamos criar um <em>dataset</em>…</p>
+<pre class="r"><code># Criando um dataset
+dt1 &lt;- data.frame(x = 1:10, y = 1:10)
+dt1</code></pre>
+<pre><code>##     x  y
+## 1   1  1
+## 2   2  2
+## 3   3  3
+## 4   4  4
+## 5   5  5
+## 6   6  6
+## 7   7  7
+## 8   8  8
+## 9   9  9
+## 10 10 10</code></pre>
+<p>…e plotar o gráfico.</p>
+<pre class="r"><code># Plotando o gráfico com &#39;labels&#39; nos eixos
+plot(dt1$y ~ dt1$x, xlab = &quot;Variável regressora &#39;x&#39;&quot;, ylab = &quot;Variável resposta &#39;y&#39;&quot;)
+
+# Escrevendo o título do gráfico
+mtext(expression(paste(&quot;y = &quot;, hat(y), &quot; = b0 + b1x&quot;)))
+
+# Plotando a linha, fornecendo o intercepto (b0 = 0) e a inclinação (b1 = 1) da reta
+abline(0, 1)</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Plot%201-1.png" width="672" /></p>
+<p>Nota-se que há uma associação perfeita e, que, podemos reproduzir ‘y’ <strong>exatamente</strong> pela equação obtida, isto é, a reta <strong>“passa”</strong> por todos os pontos dos dados. Há um ajuste perfeito nesse modelo. Contudo, em um ambiente prático, teremos <strong>mais de um valor/observação</strong> para a variável regressora ‘x’, associado à uma variável resposta ‘y’.</p>
+<p>Para vericar, vamos criar um outro <em>dataset</em> com essas características…</p>
+<pre class="r"><code># Configurar a semente
+set.seed(123)
+
+# Simulação da variável resposta &#39;Y&#39;
+Y &lt;- list()
+for (i in c(11:20)) {
+  Y[[i]] &lt;- rnorm(3, i, 1)
+}
+
+# Conbvertendo a lista em um vetor
+Y &lt;- unlist(Y)
+
+# Conjunto de dados
+dt2 &lt;- data.frame(x = rep(1:10, each = 3), y = Y)
+dt2</code></pre>
+<pre><code>##     x        y
+## 1   1 10.43952
+## 2   1 10.76982
+## 3   1 12.55871
+## 4   2 12.07051
+## 5   2 12.12929
+## 6   2 13.71506
+## 7   3 13.46092
+## 8   3 11.73494
+## 9   3 12.31315
+## 10  4 13.55434
+## 11  4 15.22408
+## 12  4 14.35981
+## 13  5 15.40077
+## 14  5 15.11068
+## 15  5 14.44416
+## 16  6 17.78691
+## 17  6 16.49785
+## 18  6 14.03338
+## 19  7 17.70136
+## 20  7 16.52721
+## 21  7 15.93218
+## 22  8 17.78203
+## 23  8 16.97400
+## 24  8 17.27111
+## 25  9 18.37496
+## 26  9 17.31331
+## 27  9 19.83779
+## 28 10 20.15337
+## 29 10 18.86186
+## 30 10 21.25381</code></pre>
+<p>…e novamente plotar o gráfico.</p>
+<pre class="r"><code># Plotando o gráfico com &#39;labels&#39; nos eixos
+plot(dt2$y ~ dt2$x, xlab = &quot;Variável regressora &#39;x&#39;&quot;, ylab = &quot;Variável resposta &#39;y&#39;&quot;)
+
+# Escrevendo o título do gráfico
+mtext(expression(paste(y != hat(y), &quot; = b0 + b1x + &quot;, bold(e))))
+
+# Obtendo a reta
+abline(lm(dt2$y ~ dt2$x))</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Plot%202-1.png" width="672" /></p>
+<div id="diagnóstico-da-reta" class="section level3">
+<h3>2.1. Diagnóstico da Reta</h3>
+<p>Para a obtenção da Reta utilizamos a função <code>lm</code>, a qual é usada para ajustar um modelo linear (vide <a href="https://www.rdocumentation.org/packages/tram/versions/0.6-0/topics/Lm">R Documentation</a>). Como resultado, obtemos uma lista composta por objetos, tais como, <strong>coeficientes</strong> estimados (intercepto, inclinação), <strong>resíduos</strong> entre outros.
+Como possuímos mais de um valor da variável resposta (‘y’) para um dado valor da variável regressora (‘x’), não conseguimos reproduzir/obter ‘y’ com o modelo apresentado anteriormente:
+<span class="math inline">\(y=\beta_0 \ + \beta_1\)</span>, pois, há um <strong>erro</strong> (resíduos) associado, o qual, representa a variabilidade presente nos dados, em que a variável regressora, não explica toda a variação.</p>
+<p>Antes de adentrar ao aspecto do ajuste do modelo de regressão e particularidades dos resíduos, vamos compreender como o modelo de regressão, com o ajuste da variável resposta em função de uma variável regressora, é melhor em comparação ao uso somente da média.</p>
+<p>Na figura abaixo, temos a <span style="color: red"><strong><em>linha vermelha</em></strong></span> indicando a <strong>Média Geral</strong> dos dados, isto é, um valor médio de ‘y’ para <strong>TODOS OS VALORES</strong> de ‘x’. O fator residual, representa o desvio em relação à média geral <span style="color: red">(<strong>Reta vermelha</strong>)</span>.</p>
+<p>Nesse modelo, a variabilidade dos dados é obtida em relação à média geral (<strong><em>M</em></strong>), isto é, o somatório da diferença de cada <strong>‘y’</strong> em relação à <strong><em>M</em></strong> e, elevando o valor obtido ao quadrado. A isto denominamos de <em>Soma de Quadrados Total</em> (<strong><em>SQT</em></strong>). A notação matemática é:</p>
+<p><span class="math display">\[
+SQT=\sum (Y_i\ - \bar{Y_i)}^2
+\]</span>
+Em suma, a porção que o modelo não explica, isto é, <strong>um modelo de média apenas</strong>, é igual a <strong><em>SQT</em></strong></p>
+<ul>
+<li>Modelo de média apenas</li>
+</ul>
+<pre class="r"><code># Plotando o gráfico com &#39;labels&#39; nos eixos
+plot(dt2$y ~ dt2$x, xlab = &quot;Variável regressora &#39;x&#39;&quot;, ylab = &quot;Variável resposta &#39;y&#39;&quot;)
+
+# Escrevendo o título do gráfico
+mtext(expression(paste(y != hat(y), &quot; = b0 + b1x + &quot;, bold(e))))
+mtext(&quot;1)&quot;, side = 3, adj = 0)
+
+  ## Reta da média geral
+abline(h = mean(dt2$y), col = &quot;red&quot;)
+text(paste(&quot;__ Média Geral (&quot;, round(mean(dt2$y), 2), &quot;)&quot;), x = 3, y = 19, col = &quot;red&quot;)
+
+# Obtendo a soma de quadrados totais ==&gt; SQT
+SQT &lt;- sum((dt2$y - mean(dt2$y))^2)
+
+# Escrevendo SQT no gráfico
+text(paste(&quot;SQT = &quot;, round(SQT, 2)), x = 8, y = 13, col = &quot;red&quot;)</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Reta%201-1.png" width="672" /></p>
+<p>Agora, observaremos o quão o uso do modelo de regressão é melhor em relação ao modelo de média para explicar a associação entre variáveis.</p>
+<p>Na figura abaixo, temos a <span style="color: blue"><strong><em>linha azul</em></strong></span> indicando a <strong>Reta ajustada com o modelo linear</strong>, isto é, um valor médio de ‘y’ para <strong>CADA VALOR</strong> de ‘x’. O fator residual, representa o desvio em relação à média para cada variável regressora <span style="color: blue">(<strong>Reta azul</strong>)</span>.</p>
+<p>Neste modelo, à uma variabilidade residual em relação à média de cada valor da variável regressora ‘x’, o qual é expressa pelo somatório da diferença entre cada ‘y’ e cada <strong>‘y’ estimado</strong> (ajuste/estimativa de ‘y’ para cada valor de ‘x’). A isto denominamos de <em>Soma de Quadrados do Resíduo</em> (<strong><em>SQRes</em></strong>). A notação matemática é:</p>
+<p><span class="math display">\[
+SQRes= \sum (Y_i\ - \hat{Y_i})^2
+\]</span>
+sendo <span class="math inline">\(i\)</span> cada valor da <span class="math inline">\(i-ésima\)</span> observação da variável preditora ‘x’.</p>
+<p>Em suma, a porção que o modelo não explica é igual a <strong><em>SQRes</em></strong></p>
+<p><strong>Notas:</strong></p>
+<ul>
+<li>Se <span class="math inline">\(Y \sim N(\mu; \sigma^2)\)</span>, então, podemos provar matematicamente que <span class="math inline">\(E(Y_i) = \bar{Y_i} = \hat{Y_i}\)</span> (não faremos essa dedução matemática neste curso)</li>
+<li>O ajuste do modelo linear no R pode ser realizado com a função <code>lm</code>. Iremos utilizar no contexto do método dos <strong>Mínimos Quadrados</strong></li>
+<li>Cada <span class="math inline">\(\hat{Y_i}\)</span> assocido à <span class="math inline">\(i-ésima\)</span> variável preditora ‘x’ terá o mesmo valor. Utilize a função <code>fitted</code> para checar.</li>
+</ul>
+<pre class="r"><code># Plotando o gráfico com &#39;labels&#39; nos eixos
+plot(dt2$y ~ dt2$x, xlab = &quot;Variável regressora &#39;x&#39;&quot;, ylab = &quot;Variável resposta &#39;y&#39;&quot;)
+
+# Escrevendo o título do gráfico
+mtext(expression(paste(y != hat(y), &quot; = b0 + b1x + &quot;, bold(e))))
+mtext(&quot;2)&quot;, side = 3, adj = 0)
+
+  ## Reta da média geral
+abline(h = mean(dt2$y), col = &quot;red&quot;)
+
+  ## Testo da reta Média geral
+text(paste(&quot;__ Média Geral (&quot;, round(mean(dt2$y), 2), &quot;)&quot;), x = 3, y = 19, col = &quot;red&quot;)
+
+# Obtendo a soma de quadrados totais ==&gt; SQT
+SQT &lt;- sum((dt2$y - mean(dt2$y))^2)
+
+# Escrevendo SQT no gráfico
+text(paste(&quot;SQT = &quot;, round(SQT, 2)), x = 8, y = 13, col = &quot;red&quot;)
+
+# Plotando a linha, fornecendo o intercepto (b0 = 0) e a inclinação (b1 = 1) da reta
+  ## Obtendo os coeficientes para obtenção da reta: função `lm`
+Reta &lt;- lm(Y ~ x, data = dt2)
+
+  ## Reta da média de cada valor da variável regressora
+abline(Reta, col = &quot;blue&quot;)
+
+  ## Testo da reta da regressão
+text(&quot;__ Reta da Regressão&quot;, x = 2.82, y = 18, col = &quot;blue&quot;)
+
+  ## Obtendo a soma de quadrados residuais == SQRes
+
+    ### Observe os valores retornados com a função `fitted`
+SQRes &lt;- sum((dt2$y - fitted(Reta))^2)
+
+  ## Escrevendo SQRes no gráfico
+text(paste(&quot;SQRes = &quot;, round(SQRes, 2)), x = 8, y = 12, col = &quot;blue&quot;)</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Reta%202-1.png" width="672" /></p>
+</div>
+<div id="falta-de-ajuste-do-modelo-de-regressão" class="section level3">
+<h3>2.2. Falta de ajuste do modelo de regressão</h3>
+<p>Observamos que no modelo ajustado há um fator resídual, o qual é devido aos erros aleatórios oriundos de fatores que não são comtemplados no modelo e, por sua vez, estão associados à variabilidade dos dados. Assim, o erro ou resíduo, possui duas porções:</p>
+<div class="figure">
+<img src="/english/post/Aula6_Regressao_v1_files/Residuo_EP_FA.jpg" alt="" />
+<p class="caption"><em>¹Composição do resíduo</em></p>
+</div>
+<p>O <strong>erro puro</strong> representa o desvio de cada observação <span class="math inline">\(Y_i\)</span> associado à um valor <span class="math inline">\(i\)</span> da variável regressora, isto é <span class="math inline">\(x_i\)</span>. Portanto, é como se tivessemos uma distribuição de dados (‘y’) para cada valor da variável regressora ‘x’. Podemos visualizar melhor na figura abaixo, o qual representa um modelo ajustado, cujo fator residual é composto somente por erro puro.</p>
+<div class="figure">
+<img src="/english/post/Aula6_Regressao_v1_files/FaltaAjust1.png" alt="" />
+<p class="caption"><em><strong>²Sem</strong> falta de ajuste no modelo ajustado: Somente <strong>erro puro</strong> compondo o resíduo</em></p>
+</div>
+<p>Quando o modelo ajustado não representa, ou o faz pobremente, a associação entre as variáveis alvo, há um erro associado à falta de ajuste do modelo. Por isso, devemos testar o modelo ajustado quanto a falta de ajuste, de modo a <strong>encontrar um modelo apropriado aos dados</strong>.</p>
+<div class="figure">
+<img src="/english/post/Aula6_Regressao_v1_files/FaltaAjust2.png" alt="" />
+<p class="caption"><em><strong>³Com</strong> falta de ajuste no modelo ajustado: <strong>Erro puro + Falta de ajuste</strong> compondo o resíduo</em></p>
+</div>
+<p>Para analisar a falta de ajuste do modelo, podemos decompor <strong>SQRes</strong> em duas porções: <strong>Erro puro (EP)</strong> e <strong>Falta de Ajuste (FA)</strong>, como segue.</p>
+<p><img src="/english/post/Aula6_Regressao_v1_files/TabelaFaltaAjuste.jpg" /></p>
+<p>Figuras ¹, ² e ³: <a href="http://mensuracaoflorestal.com.br/falta-de-ajustamento">mensuração florestal</a></p>
+<ul>
+<li><p>Obtendo a tabela da ANOVA para:</p>
+<ul>
+<li>Testar a significância do modelo de regressão</li>
+<li>Obter as somas de quadrados</li>
+<li>Obter os coeficientes estimados <span class="math inline">\(\hat{\beta_0}\)</span> (intercepto) e <span class="math inline">\(\hat{\beta_1}\)</span> (inclinação)</li>
+<li>Obter a equação da reta: <span class="math inline">\(\hat{Y} = \hat{\beta_0} \ + \hat{\beta_1}X\)</span></li>
+</ul></li>
+</ul>
+<pre class="r"><code># tabela da ANOVA
+anova &lt;- anova(Reta)
+anova</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: Y
+##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)    
+## x          1 212.631  212.63  223.93 6.927e-15 ***
+## Residuals 28  26.587    0.95                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Observamos que a regressão é significativa</p>
+<ul>
+<li>Obtendo os coeficientes: Função <code>coef</code></li>
+</ul>
+<pre class="r"><code>coef(Reta)</code></pre>
+<pre><code>## (Intercept)           x 
+##  10.3550295   0.9268849</code></pre>
+<ul>
+<li><p>Interpretação:</p>
+<ul>
+<li><span class="math inline">\(\hat{\beta_0} = Intercepto:\)</span> Representa o valor de ‘y’ quando a variável regressora ‘x’ assume o valor 0, ou seja, quanto é ‘y’ quando não há o efeito de ‘x’: ~ 10,36.</li>
+<li><span class="math inline">\(\hat{\beta_1} = Inclinação:\)</span> Representa a variação de ‘y’ para cada unidade de mudança de ‘x’: ~ 0,93, ou seja, a cada mudança de 1 unidade de ‘x’ há uma mudança de ~ 0,93 unidade de ‘y’.</li>
+</ul></li>
+</ul>
+<p>Vamos obter a equação completa com o auxílio da função <code>extract_eq</code> do pacote <code>equatiomatic</code></p>
+<p><span class="math display">\[
+\operatorname{\widehat{Y}} = 10.36 + 0.93(\operatorname{x})
+\]</span></p>
+<p>Para se testar a falta de ajuste, compara-se o modelo ajustado anteriormente com um modelo ajustado, agora, considerando ‘x’ como um <strong>fator</strong>. Isso permitirá verificar se a reta passa pela distribuição de cada valor de ‘x’.</p>
+<p>A hipótese <span class="math inline">\(H_0\)</span> é que o valor estimado da reta (<span class="math inline">\(\hat{Y_i}\)</span>) no ponto <span class="math inline">\(x_i\)</span> está contido na distribuição dos dados no ponto <span class="math inline">\(x_i\)</span>.</p>
+<pre class="r"><code># Teste de falta de ajuste
+# Se há repetições (&#39;y&#39;) de X
+  ## Ajustando o modelo com &#39;x&#39; como fator
+Reta2 &lt;- lm(Y ~ factor(x), data = dt2)
+  ## Ajustando a `anova` para comparação de modelos
+anova_FA &lt;- anova(Reta, Reta2)
+anova_FA</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: Y ~ x
+## Model 2: Y ~ factor(x)
+##   Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+## 1     28 26.587                           
+## 2     20 23.070  8     3.517 0.3811 0.9182</code></pre>
+<p>Nesse exemplo aceitamos <span class="math inline">\(H_0\)</span> e, dizemos que não há falta de ajuste. Portanto, a porção de resíduos (<span class="math inline">\(\epsilon\)</span>) contém apenas o erro puro.</p>
+<ul>
+<li>Obtendo variável com associação quadrática</li>
+</ul>
+<pre class="r"><code># Obtendo y2
+dt2$y2 &lt;- dt2$x^2 + dt2$y
+dt2</code></pre>
+<pre><code>##     x        y        y2
+## 1   1 10.43952  11.43952
+## 2   1 10.76982  11.76982
+## 3   1 12.55871  13.55871
+## 4   2 12.07051  16.07051
+## 5   2 12.12929  16.12929
+## 6   2 13.71506  17.71506
+## 7   3 13.46092  22.46092
+## 8   3 11.73494  20.73494
+## 9   3 12.31315  21.31315
+## 10  4 13.55434  29.55434
+## 11  4 15.22408  31.22408
+## 12  4 14.35981  30.35981
+## 13  5 15.40077  40.40077
+## 14  5 15.11068  40.11068
+## 15  5 14.44416  39.44416
+## 16  6 17.78691  53.78691
+## 17  6 16.49785  52.49785
+## 18  6 14.03338  50.03338
+## 19  7 17.70136  66.70136
+## 20  7 16.52721  65.52721
+## 21  7 15.93218  64.93218
+## 22  8 17.78203  81.78203
+## 23  8 16.97400  80.97400
+## 24  8 17.27111  81.27111
+## 25  9 18.37496  99.37496
+## 26  9 17.31331  98.31331
+## 27  9 19.83779 100.83779
+## 28 10 20.15337 120.15337
+## 29 10 18.86186 118.86186
+## 30 10 21.25381 121.25381</code></pre>
+<ul>
+<li>Plotando y2</li>
+</ul>
+<pre class="r"><code># Plotando o gráfico com &#39;labels&#39; nos eixos
+plot(dt2$y2 ~ dt2$x, xlab = &quot;Variável regressora &#39;x&#39;&quot;, ylab = &quot;Variável resposta &#39;y&#39;&quot;)
+Reta3 &lt;- lm(y2 ~ x, data = dt2)
+
+  ## Reta da média de cada valor da variável regressora
+abline(Reta3, col = &quot;blue&quot;)</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/plot%20y2%201-1.png" width="672" /></p>
+<pre class="r"><code># Teste de falta de ajuste
+# Se há repetições (&#39;y&#39;) de X
+  ## Ajustando o modelo com &#39;x&#39; como fator
+Reta4 &lt;- lm(y2 ~ factor(x), data = dt2)
+  ## Ajustando a `anova` para comparação de modelos
+anova_FA2 &lt;- anova(Reta3, Reta4)
+anova_FA2</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: y2 ~ x
+## Model 2: y2 ~ factor(x)
+##   Res.Df     RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1     28 1644.89                                  
+## 2     20   23.07  8    1621.8 175.75 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Nesse exemplo rejeitamos <span class="math inline">\(H_0\)</span> e, dizemos que há falta de ajuste. Portanto, a porção de resíduos (<span class="math inline">\(\epsilon\)</span>) contém o erro puro e falta de ajuste. Nesse caso, devemos encontrar e utilizar um modelo apropriado aos dados.</p>
+</div>
+</div>
+<div id="Referências" class="section level2">
+<h2></h2>
+</div>
+<div id="referências" class="section level2">
+<h2>Referências</h2>
+<p>MONTGOMERY, Douglas C.; PECK, Elizabeth A.; VINING, G. Geoffrey. <strong>Introduction to linear regression analysis</strong>. John Wiley &amp; Sons, 2021.</p>
+</div>
+<div id="prática-regressão-evapotranspiração-etp-vs-produção-de-massa-seca-msc-em-mudas-de-eucalipto" class="section level1">
+<h1>Prática: Regressão Evapotranspiração (<strong>ETP</strong>) vs Produção de massa seca (<strong>MSC</strong>) em mudas de eucalipto</h1>
+<div id="explorando-tendências-de-associação-entre-variáveis" class="section level2">
+<h2>1. Explorando tendências de associação entre variáveis</h2>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<ul>
+<li><p>O <strong>conjunto de dados</strong> consiste em:</p>
+<ul>
+<li><p>Um experimento conduzido em <strong>casa de vegetação</strong></p></li>
+<li><p><strong>Cultura:</strong> <span style="color: green"><strong>Eucalipto</strong></span></p></li>
+<li><p><strong>Material:</strong> Clones comerciais</p></li>
+<li><p><strong>Tratamentos:</strong></p>
+<ul>
+<li>Regimes de irrigação na parcela (R1 - Sem restrição hídrica, R2 - Com restrição hidrica e R3 - Com estresse hídrico)</li>
+<li>Mudas de clones de eucalipto na subparcela</li>
+</ul></li>
+<li><p>Nº de repetições/bloco: 6</p></li>
+<li><p>Nº de plantas por parcela: 1</p></li>
+<li><p><strong>Caracteres estudados:</strong> Evapotranspiração (ETP) e massa seca de caule e galhos (MSC)</p></li>
+</ul></li>
+</ul>
+<p>Fonte dos dados e maiores detalhes em: <a href="https://repositorio.unesp.br/bitstream/handle/11449/180449/araujo_mj_dr_jabo.pdf?sequence=3&amp;isAllowed=y">Araujo, 2018</a></p>
+<p><strong>Para obtenção dos dados, clique aqui:</strong> <a href="mailto:marcio_ok66@hotmail.com;%20marcio@ipef.br">Link dos dados</a></p>
+<pre class="r"><code>Dados &lt;- openxlsx::read.xlsx(&quot;DataSet2_v1.xlsx&quot;)
+head(Dados, 10)</code></pre>
+<pre><code>##    Planta Clone Regime Bloco    ETP   MSC
+## 1       1    C1     R1     1 45.700 14.42
+## 2       2    C2     R1     1 49.390 23.94
+## 3       3    C3     R1     1 46.920 24.18
+## 4       4    C4     R1     1 48.315 21.52
+## 5       5    C5     R1     1 47.600 22.43
+## 6       6    C6     R1     1 48.725 28.03
+## 7       7    C7     R1     1 40.990 15.44
+## 8       8    C8     R1     1 46.330 25.06
+## 9       9    C9     R1     1 48.005 22.51
+## 10     10   C10     R1     1 49.890 26.14</code></pre>
+<div id="explorando-dados-por-regime-de-irrigação-ri" class="section level3">
+<h3>1.1. Explorando dados por regime de irrigação (RI)</h3>
+<pre class="r"><code># Considerando todos os clones e RI&#39;s
+plot(MSC ~ ETP, data = Dados, main = &quot;Todos os regimes de irrigação e clones&quot;)</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-1.png" width="672" /></p>
+<pre class="r"><code># Analisando por RI
+for (i in unique(Dados$Regime)) {
+  plot(
+    MSC ~ ETP,
+    data = Dados %&gt;%
+      filter(Regime == i),
+    main = paste(&quot;Regime de irrigação&quot;, i, &quot;e todos os clones&quot;)
+  )
+}</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-2.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-3.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-4.png" width="672" /></p>
+</div>
+<div id="explorando-dados-por-clones" class="section level3">
+<h3>1.2.Explorando dados por clones</h3>
+<pre class="r"><code># Considerando todos os clones e RI&#39;s
+plot(MSC ~ ETP, data = Dados, main = &quot;Todos os regimes de irrigação e clones&quot;)</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-1.png" width="672" /></p>
+<pre class="r"><code># Analisando por clone
+for (i in unique(Dados$Clone)) {
+  plot(
+    MSC ~ ETP,
+    data = Dados %&gt;%
+      filter(Clone == i),
+    main = paste(&quot;Clone&quot;, i, &quot;e todos os RI&#39;s&quot;)
+  )
+} </code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-2.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-3.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-4.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-5.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-6.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-7.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-8.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-9.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-10.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-11.png" width="672" /></p>
+</div>
+</div>
+<div id="modelo-de-regressão-1" class="section level2">
+<h2>2. Modelo de Regressão</h2>
+<div id="ajuste-do-modelo" class="section level3">
+<h3>2.1. Ajuste do modelo</h3>
+<div id="verificando-a-falta-de-ajuste" class="section level4">
+<h4>2.1.1. Verificando a falta de ajuste</h4>
+<pre class="r"><code># Ajustando o modelo de regressão
+Mod1 &lt;- lm(MSC ~ ETP, data = Dados)
+
+  ## Verificando a significância da regressão
+anova(Mod1)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: MSC
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## ETP         1 3232.5  3232.5  122.99 &lt; 2.2e-16 ***
+## Residuals 178 4678.3    26.3                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>  ## Obtendo os Betas: b0 e b1 e R²
+summary(Mod1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = MSC ~ ETP, data = Dados)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -13.7352  -2.8917   0.5721   3.3742  12.8614 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  3.18608    1.76374   1.806   0.0725 .  
+## ETP          0.51747    0.04666  11.090   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 5.127 on 178 degrees of freedom
+## Multiple R-squared:  0.4086, Adjusted R-squared:  0.4053 
+## F-statistic:   123 on 1 and 178 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code># Ajustando o modelo para a falta de ajuste
+Ajust1 &lt;- lm(MSC ~ as.factor(ETP), data = Dados)
+anova(Ajust1)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: MSC
+##                 Df Sum Sq Mean Sq F value Pr(&gt;F)
+## as.factor(ETP) 177 7765.8  43.875  0.6056 0.8053
+## Residuals        2  144.9  72.451</code></pre>
+<pre class="r"><code># Testando a significância da falta de ajuste
+anova(Mod1, Ajust1)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: MSC ~ ETP
+## Model 2: MSC ~ as.factor(ETP)
+##   Res.Df    RSS  Df Sum of Sq      F Pr(&gt;F)
+## 1    178 4678.3                            
+## 2      2  144.9 176    4533.3 0.3555 0.9373</code></pre>
+<ul>
+<li>Plotando a regressão</li>
+</ul>
+<pre class="r"><code># Extraindo b0 e b1
+b0 &lt;- coef(Mod1)[1]
+b1 &lt;- coef(Mod1)[2]
+
+# Plotando os pontos
+plot(MSC ~ ETP, data = Dados)
+
+# Inserindo a reta
+abline(coef = c(b0, b1))
+
+# Escrevendo a equação
+text(expression(paste(hat(y), &quot; = 3.19 + 0.52*ETP&quot;)), x = 25, y = 35)
+
+# Inserindo o R²
+#summary(Mod1)[&quot;r.squared&quot;]
+text(paste(&quot;R² = &quot;,round(summary(Mod1)[[&quot;r.squared&quot;]], 2)), x = 25, y = 30)</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Reg%202-1.png" width="672" /></p>
+<p><span class="math display">\[
+\operatorname{\widehat{MSC}} = 3.19 + 0.52(\operatorname{ETP})
+\]</span></p>
+<p><strong>Conclusões:</strong></p>
+<ul>
+<li>O modelo ajustado não contém uma falta de ajuste, ou seja, a porção residual contém apenas o <strong>erro puro</strong>.<br />
+</li>
+<li>Há uma associação linear e positiva entre a evapotranspiração dos clones e a produção de massa seca nas mudas avaliadas.</li>
+<li>O modelo explica 41% da variação dos dados, ou seja, 41% da produção de massa seca está associada à evapotranspiração.</li>
+</ul>
+</div>
+</div>
+<div id="regressão-com-variável-classificatória-regressão-múltipla" class="section level3">
+<h3>2.2. Regressão com variável classificatória: <strong>Regressão Múltipla</strong></h3>
+<p>Até agora, verificamos a associação entre ETP e MSC sem considerar efeitos que podem ser influenciadores nessa relação. Por exemplo, podemos verificar se:</p>
+<ul>
+<li>O regime de irrigação aplicado tem influência nessa associação? Se sim, como ocorre? Quais diferenças entre os regimes mais restritivos e o menos restritivo?</li>
+<li>Os clones possuem comportamentos diferentes em relação à ETP e a produção de massa seca? Quais são diferentes entre si?</li>
+<li>Há interação entre regime de irrigação e clone?</li>
+</ul>
+<p>Nesse contexto, verificaremos a influência desses efeitos utilizando a análise de regressão múltipla, com os efeitos de regime de irrigação e clones.</p>
+<div id="análise-do-efeito-de-regime-para-msc-das-plantas" class="section level4">
+<h4>2.2.1. Análise do efeito de Regime para MSC das plantas</h4>
+<ul>
+<li><p>Verificando efeito de Regime</p>
+<ul>
+<li><span class="math inline">\(H_0:\)</span> A produção de massa seca das plantas não está associada ao <strong>Regime de Irrigação</strong> (RI)</li>
+</ul></li>
+</ul>
+<pre class="r"><code># Ajustando o modelo
+Mod2 &lt;- lm(MSC ~ ETP + Regime, data = Dados %&gt;% mutate(Regime = as.factor(Regime)))
+# Verificando a significância dos efeitos
+anova(Mod2)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: MSC
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## ETP         1 3232.5  3232.5 194.119 &lt; 2.2e-16 ***
+## Regime      2 1747.5   873.8  52.472 &lt; 2.2e-16 ***
+## Residuals 176 2930.7    16.7                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Efeito de RI significativo, portanto <strong>rejeita-se</strong> <span class="math inline">\(H_0\)</span> e, conclui-se que a produção de massa seca das plantas depende do RI. Com isso, devemos obter uma regressão para cada RI.</p>
+<ul>
+<li><p>Primeiramente iremos comparar o modelo com e sem o efeito de RI</p>
+<ul>
+<li><span class="math inline">\(H_0:\)</span> RI não afeta a MSC das plantas</li>
+</ul></li>
+</ul>
+<pre class="r"><code># Comparando modelos
+anova(Mod1, Mod2)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: MSC ~ ETP
+## Model 2: MSC ~ ETP + Regime
+##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1    178 4678.3                                  
+## 2    176 2930.7  2    1747.5 52.472 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Conclusão:</strong> O efeito de RI é significativo, portanto, rejeitamos <span class="math inline">\(H_0\)</span> e concluimos que RI afeta a MSC das plantas, isto é, pelo menos um RI difere dos demais para MSC.</p>
+<ul>
+<li>Verificando R² e coeficientes</li>
+</ul>
+<pre class="r"><code># Verificando os coeficientes e R²
+summary(Mod2)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = MSC ~ ETP + Regime, data = Dados %&gt;% mutate(Regime = as.factor(Regime)))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10.7472  -2.6965  -0.0486   2.3917  13.4381 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -50.6648     5.4590  -9.281   &lt;2e-16 ***
+## ETP           1.6593     0.1184  14.014   &lt;2e-16 ***
+## RegimeR2     11.0271     1.2043   9.156   &lt;2e-16 ***
+## RegimeR3     24.1143     2.3664  10.190   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.081 on 176 degrees of freedom
+## Multiple R-squared:  0.6295, Adjusted R-squared:  0.6232 
+## F-statistic: 99.69 on 3 and 176 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code># Extraindo os coeficientes
+coef(Mod2)</code></pre>
+<pre><code>## (Intercept)         ETP    RegimeR2    RegimeR3 
+##  -50.664778    1.659343   11.027143   24.114251</code></pre>
+<p><strong>Conclusões:</strong></p>
+<ul>
+<li><p>RI melhorou o modelo.<br />
+</p>
+<ul>
+<li>Comparando R² ajustado, houve um aumento de 0,41 (Modelo sem RI) para 0,62 (Modelo com RI)</li>
+</ul></li>
+<li><p>As plantas em R2 produzem MSC <strong>~ 11g</strong> a mais em relação ao R1 quando todos os demais fatores são mantidos constantes, ou seja, não há ETP</p></li>
+<li><p>As plantas em R3 reduzem MSC em <strong>~ 24g</strong> a mais em relação ao R1 quando não há ETP</p></li>
+<li><p>Em suma, as plantas com RI mais restritivos são mais responsíveis à ETP/Irrigação/Disponibilidade Hídrica</p></li>
+</ul>
+<p><strong>Obtendo as as equações:</strong></p>
+<ul>
+<li>Com os coeficientes em símbolos</li>
+</ul>
+<p><span class="math display">\[
+\operatorname{MSC} = \beta_{0} + \beta_{1}(\operatorname{ETP}) + \beta_{2}(\operatorname{Regime}_{\operatorname{R2}}) + \beta_{3}(\operatorname{Regime}_{\operatorname{R3}}) + \epsilon
+\]</span></p>
+<ul>
+<li>Com os coeficientes numéricos</li>
+</ul>
+<p><span class="math display">\[
+\operatorname{\widehat{MSC}} = -50.66 + 1.66(\operatorname{ETP}) + 11.03(\operatorname{Regime}_{\operatorname{R2}}) + 24.11(\operatorname{Regime}_{\operatorname{R3}})
+\]</span></p>
+<div id="análise-gráfica" class="section level5">
+<h5>2.2.1.1. Análise gráfica</h5>
+<pre class="r"><code># b0 ==&gt; Efeito (Intercepto) de R1
+b0 &lt;- coef(Mod2)[1]
+
+# b1 ou Inclinação ==&gt; Efeito de ETP
+b1_slope &lt;- coef(Mod2)[2]
+
+# b2 ==&gt; Efeito (intercepto) de R2
+b2 &lt;- coef(Mod2)[1] + coef(Mod2)[3]
+
+# b3 ==&gt; Efeito (Intercepto) de R3
+b3 &lt;- coef(Mod2)[1] + coef(Mod2)[4]</code></pre>
+<pre class="r"><code># Camada 1: Inserindo coordenadas
+ggplot(Dados, aes(x = ETP, y = MSC)) +
+  
+# Camada 2: Inserindo pontos e mapeando RI por cores  
+  geom_point(aes(colour = Regime)) +
+  
+# Camada 3: Definindo limites para o eixo y  
+  scale_y_continuous(limits = c(-51, 41)) +
+  
+# Camada 4: Definindo limites para o eixo x  
+  scale_x_continuous(limits = c(0, 70)) +
+  
+# Camada 5: Configurando cores manualmente  
+  scale_color_manual(values = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)) +
+  
+# Camada 6: Plotando e configurando as retas  
+  geom_abline(
+    intercept = c(b0, b2, b3),
+    slope = b1_slope,
+    colour = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+  )</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%201-1.png" width="672" /></p>
+<ul>
+<li>Obtendo o mesmo gráfico com “zoom”</li>
+</ul>
+<pre class="r"><code># Camada 1: Inserindo coordenadas
+ggplot(Dados, aes(x = ETP, y = MSC)) +
+  
+# Camada 2: Inserindo pontos e mapeando RI por cores  
+  geom_point(aes(colour = Regime)) +
+  
+# Camada 3: Configurando cores manualmente  
+  scale_color_manual(values = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)) +
+  
+# Camada 4: Plotando e configurando as retas  
+  geom_abline(
+    intercept = c(b0, b2, b3),
+    slope = b1_slope,
+    colour = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+  )</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%202-1.png" width="672" /></p>
+</div>
+<div id="predição-e-intervalos-função-predict" class="section level5">
+<h5>2.2.1.2. Predição e intervalos: Função <code>predict</code></h5>
+<pre class="r"><code># Dados para a predição
+DataPred &lt;-
+  data.frame(
+    Regime = c(&quot;R1&quot;, &quot;R2&quot;, &quot;R3&quot;),
+    ETP = c(100, 100, 100)
+  )
+DataPred</code></pre>
+<pre><code>##   Regime ETP
+## 1     R1 100
+## 2     R2 100
+## 3     R3 100</code></pre>
+<pre class="r"><code># Predição com intervalo da predição
+predict(Mod2, newdata = DataPred, interval = &quot;prediction&quot;)</code></pre>
+<pre><code>##        fit      lwr      upr
+## 1 115.2696 100.2420 130.2971
+## 2 126.2967 109.6672 142.9262
+## 3 139.3838 120.4741 158.2935</code></pre>
+<pre class="r"><code># Predição com intervalo de confiança
+predict(Mod2, newdata = DataPred, interval = &quot;confidence&quot;)</code></pre>
+<pre><code>##        fit      lwr      upr
+## 1 115.2696 102.5821 127.9570
+## 2 126.2967 111.7473 140.8461
+## 3 139.3838 122.2748 156.4928</code></pre>
+<p><strong>Nota:</strong> O intervalo da predição indica uma incerteza em torno de um <strong>valor único</strong>, ao passo que o intevalo de confiança indica uma incerteza em torno dos <strong>valores médios preditos</strong>.</p>
+</div>
+</div>
+<div id="análise-do-efeito-de-clones-para-msc-das-plantas" class="section level4">
+<h4>2.2.2. Análise do efeito de Clones para MSC das plantas</h4>
+<pre class="r"><code># Ajustando o modelo
+Mod3 &lt;- lm(MSC ~ ETP + Regime + Clone, data = Dados %&gt;% mutate(Regime = as.factor(Regime), Clone = as.factor(Clone)))
+
+# Verificando a significância dos efeitos
+anova(Mod3)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: MSC
+##            Df Sum Sq Mean Sq F value    Pr(&gt;F)    
+## ETP         1 3232.5  3232.5 324.341 &lt; 2.2e-16 ***
+## Regime      2 1747.5   873.8  87.672 &lt; 2.2e-16 ***
+## Clone       9 1266.4   140.7  14.118 &lt; 2.2e-16 ***
+## Residuals 167 1664.4    10.0                      
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Efeito de Clone significativo, portanto <strong>rejeita-se</strong> <span class="math inline">\(H_0\)</span> e, conclui-se que a produção de massa seca das plantas depende do Clone. Com isso, devemos obter uma regressão para cada Clone.</p>
+<ul>
+<li><p>Primeiramente iremos comparar o modelo com e sem o efeito de Clone</p>
+<ul>
+<li><span class="math inline">\(H_0:\)</span> RI não afeta a MSC das plantas</li>
+</ul></li>
+</ul>
+<pre class="r"><code># Comparando modelos
+anova(Mod2, Mod3)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: MSC ~ ETP + Regime
+## Model 2: MSC ~ ETP + Regime + Clone
+##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
+## 1    176 2930.7                                  
+## 2    167 1664.4  9    1266.4 14.118 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Conclusão:</strong> O efeito de Clone é significativo, portanto, rejeitamos <span class="math inline">\(H_0\)</span> e concluimos que Clone afeta a MSC das plantas, isto é, pelo menos um Clone difere dos demais para MSC.</p>
+<ul>
+<li>Verificando R² e coeficientes</li>
+</ul>
+<pre class="r"><code># Verificando os coeficientes e R²
+summary(Mod3)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = MSC ~ ETP + Regime + Clone, data = Dados %&gt;% mutate(Regime = as.factor(Regime), 
+##     Clone = as.factor(Clone)))
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -9.703 -1.831  0.097  1.907  9.968 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -25.5138     5.8667  -4.349 2.37e-05 ***
+## ETP           0.9708     0.1354   7.172 2.28e-11 ***
+## RegimeR2      5.5246     1.2257   4.507 1.23e-05 ***
+## RegimeR3     11.0532     2.6315   4.200 4.33e-05 ***
+## CloneC10      9.0865     1.2414   7.320 9.98e-12 ***
+## CloneC2       6.4168     1.1625   5.520 1.27e-07 ***
+## CloneC3       8.5837     1.1141   7.704 1.11e-12 ***
+## CloneC4       6.6942     1.1762   5.691 5.54e-08 ***
+## CloneC5       4.5062     1.1747   3.836 0.000177 ***
+## CloneC6      11.6446     1.2174   9.565  &lt; 2e-16 ***
+## CloneC7       2.8454     1.0648   2.672 0.008284 ** 
+## CloneC8       8.5907     1.1425   7.519 3.21e-12 ***
+## CloneC9       6.0858     1.1896   5.116 8.50e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.157 on 167 degrees of freedom
+## Multiple R-squared:  0.7896, Adjusted R-squared:  0.7745 
+## F-statistic: 52.23 on 12 and 167 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code># Extraindo os coeficientes
+coef(Mod3)</code></pre>
+<pre><code>## (Intercept)         ETP    RegimeR2    RegimeR3    CloneC10     CloneC2 
+## -25.5138407   0.9707976   5.5246290  11.0532262   9.0865304   6.4168422 
+##     CloneC3     CloneC4     CloneC5     CloneC6     CloneC7     CloneC8 
+##   8.5836742   6.6942117   4.5062432  11.6445517   2.8454153   8.5906927 
+##     CloneC9 
+##   6.0857923</code></pre>
+<p><strong>Conclusões:</strong></p>
+<ul>
+<li><p>Clone melhorou o modelo.<br />
+</p>
+<ul>
+<li>Comparando R² ajustado, houve um aumento de 0,62 (Modelo sem Clone) para 0,77 (Modelo com Clone)</li>
+</ul></li>
+<li><p>Houve alteração no efeito de RI se compararmos ao modelo sem efeito de Clone</p>
+<ul>
+<li>Por exemplo, as plantas em R2 produzem MSC <strong>~ 5g</strong> a mais em relação ao R1 quando todos os demais fatores são mantidos constantes, ou seja, não há ETP. No modelo anterior esse valor foi de <strong>~ 11g</strong></li>
+</ul></li>
+<li><p><strong>Ex:</strong> O C10 produz <strong>~ 9g</strong> de MSC a mais em relação ao C1 (Clone referência ou pivô) quando todos os demais fatores são mantidos constantes, ou seja, não há ETP</p></li>
+</ul>
+</div>
+<div id="anexando-conhecimento-função-aggregate" class="section level4">
+<h4><span style="color: red">Anexando Conhecimento:</span> <span style="color: blue">Função <code>aggregate</code></span></h4>
+<ul>
+<li>Usando a função <code>aggregate</code> para obter a média de MSC para cada Clone em cada RI</li>
+</ul>
+<pre class="r"><code>aggregate(MSC ~ Regime:Clone, data = Dados %&gt;% 
+            mutate(Clone = as.factor(Clone)), mean)</code></pre>
+<pre><code>##    Regime Clone      MSC
+## 1      R1    C1 14.89333
+## 2      R2    C1 13.97167
+## 3      R3    C1 10.00500
+## 4      R1   C10 30.25667
+## 5      R2   C10 27.97500
+## 6      R3   C10 22.06833
+## 7      R1    C2 25.51167
+## 8      R2    C2 24.56000
+## 9      R3    C2 18.67667
+## 10     R1    C3 27.58833
+## 11     R2    C3 24.74500
+## 12     R3    C3 20.16167
+## 13     R1    C4 27.32333
+## 14     R2    C4 24.30167
+## 15     R3    C4 18.63500
+## 16     R1    C5 25.33167
+## 17     R2    C5 22.29500
+## 18     R3    C5 15.99500
+## 19     R1    C6 33.30000
+## 20     R2    C6 30.92667
+## 21     R3    C6 22.74667
+## 22     R1    C7 15.00833
+## 23     R2    C7 14.48000
+## 24     R3    C7 14.41333
+## 25     R1    C8 27.65167
+## 26     R2    C8 26.93000
+## 27     R3    C8 19.63167
+## 28     R1    C9 27.93500
+## 29     R2    C9 22.28000
+## 30     R3    C9 18.84833</code></pre>
+<p><strong>Obtendo as as equações:</strong></p>
+<ul>
+<li>Com os coeficientes em símbolos</li>
+</ul>
+<p><span class="math display">\[
+\operatorname{MSC} = \beta_{0} + \beta_{1}(\operatorname{ETP}) + \\ \beta_{2}(\operatorname{Regime}_{\operatorname{R2}}) + \\ \beta_{3}(\operatorname{Regime}_{\operatorname{R3}}) + \\ \beta_{4}(\operatorname{Clone}_{\operatorname{C10}}) + \\ \beta_{5}(\operatorname{Clone}_{\operatorname{C2}}) + \\ \beta_{6}(\operatorname{Clone}_{\operatorname{C3}}) + \\ \beta_{7}(\operatorname{Clone}_{\operatorname{C4}}) + \\ \beta_{8}(\operatorname{Clone}_{\operatorname{C5}}) + \\ \beta_{9}(\operatorname{Clone}_{\operatorname{C6}}) + \\ \beta_{10}(\operatorname{Clone}_{\operatorname{C7}}) + \\ \beta_{11}(\operatorname{Clone}_{\operatorname{C8}}) + \\ \beta_{12}(\operatorname{Clone}_{\operatorname{C9}}) + \epsilon
+\]</span></p>
+<ul>
+<li>Com os coeficientes numéricos</li>
+</ul>
+<p><span class="math display">\[
+\operatorname{\widehat{MSC}} = -25.51 + 0.97(\operatorname{ETP}) + \\ 5.52(\operatorname{Regime}_{\operatorname{R2}}) + \\ 11.05(\operatorname{Regime}_{\operatorname{R3}}) + \\ 9.09(\operatorname{Clone}_{\operatorname{C10}}) + \\ 6.42(\operatorname{Clone}_{\operatorname{C2}}) + \\ 8.58(\operatorname{Clone}_{\operatorname{C3}}) + \\ 6.69(\operatorname{Clone}_{\operatorname{C4}}) + \\ 4.51(\operatorname{Clone}_{\operatorname{C5}}) + \\ 11.64(\operatorname{Clone}_{\operatorname{C6}}) + \\ 2.85(\operatorname{Clone}_{\operatorname{C7}}) + \\ 8.59(\operatorname{Clone}_{\operatorname{C8}}) + \\ 6.09(\operatorname{Clone}_{\operatorname{C9}})
+\]</span></p>
+</div>
+</div>
+<div id="modelos-com-interação" class="section level3">
+<h3>2.3. Modelos com interação</h3>
+<p>Até aqui, os modelos utilizados possuem como premissa haver a mesma inclinação para os efeitos estudados (Regime e Clone). Isso indica que a produção de MSC ocorre na mesma intensidade para todos os regimes e clones, o que pode não estar ocorrendo na prática. Por isso, vamos testar o efeito das interações <strong>ETP:Regime</strong>, <strong>ETP:Clone</strong> e <strong>ETP:Regime:Clone</strong>. Na prática, na observância de significância desses efeitos, o que teremos é diferentes inclinações <span class="math inline">\((\gamma)\)</span></p>
+<pre class="r"><code># Ajustando o modelo
+Mod4 &lt;-
+  lm(
+    MSC ~ ETP + Clone + Regime + ETP:Regime + ETP:Clone + ETP:Regime:Clone,
+    data = Dados %&gt;% mutate(Regime = as.factor(Regime), Clone = as.factor(Clone))
+  )
+
+# Verificando a significância dos efeitos
+anova(Mod4)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: MSC
+##                   Df Sum Sq Mean Sq  F value    Pr(&gt;F)    
+## ETP                1 3232.5  3232.5 322.6803 &lt; 2.2e-16 ***
+## Clone              9 2811.0   312.3  31.1783 &lt; 2.2e-16 ***
+## Regime             2  202.9   101.5  10.1288 7.862e-05 ***
+## ETP:Regime         2    7.6     3.8   0.3774    0.6863    
+## ETP:Clone          9   46.3     5.1   0.5137    0.8627    
+## ETP:Clone:Regime  18  228.1    12.7   1.2648    0.2204    
+## Residuals        138 1382.4    10.0                       
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Efeito da interação ETP:Regime:Clone não significativo, portanto <strong>aceita-se</strong> <span class="math inline">\(H_0\)</span> e, conclui-se que a mudança de MSC causada pelo efeito de <strong>ETP</strong> é semelhante para todos os regimes e clones estudados.</p>
+<ul>
+<li>Comparando os modelos, temos:</li>
+</ul>
+<pre class="r"><code># Comparando modelos
+anova(Mod3, Mod4)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: MSC ~ ETP + Regime + Clone
+## Model 2: MSC ~ ETP + Clone + Regime + ETP:Regime + ETP:Clone + ETP:Regime:Clone
+##   Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+## 1    167 1664.4                           
+## 2    138 1382.4 29    281.94 0.9705 0.5159</code></pre>
+<ul>
+<li>Verificando R² e R² ajustado</li>
+</ul>
+<pre class="r"><code># Verificando os coeficientes e R²
+summary(Mod4)[[&quot;r.squared&quot;]]</code></pre>
+<pre><code>## [1] 0.8252473</code></pre>
+<pre class="r"><code># Verificando os coeficientes e R² ajustado
+summary(Mod4)[[&quot;adj.r.squared&quot;]]</code></pre>
+<pre><code>## [1] 0.773328</code></pre>
+<p><strong>Conclusões:</strong></p>
+<ul>
+<li><p>A interação não melhorou o modelo.<br />
+</p>
+<ul>
+<li>Comparando R² ajustado, não houve um aumento (0,77 se manteve) de um modelo sem e com interação</li>
+<li>Devemos utilizar o modelo mais <strong>parcimonioso</strong></li>
+</ul></li>
+</ul>
+<div id="ajustando-modelo-com-interação" class="section level4">
+<h4>2.3.1. Ajustando modelo com interação</h4>
+<p>Observamos qua não há interação significativa em nosso estudo de caso. No entanto, <strong>vamos supor</strong> que houve interação ETP:Regime significativa, como pocederíamos?</p>
+<pre class="r"><code># Ajustando o modelo
+Mod5 &lt;-
+  lm(MSC ~ ETP + Regime + ETP:Regime,
+     data = Dados %&gt;% mutate(Regime = as.factor(Regime)))
+
+# Verificando a significância dos efeitos
+anova(Mod5)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: MSC
+##             Df Sum Sq Mean Sq  F value Pr(&gt;F)    
+## ETP          1 3232.5  3232.5 193.8229 &lt;2e-16 ***
+## Regime       2 1747.5   873.8  52.3919 &lt;2e-16 ***
+## ETP:Regime   2   28.9    14.4   0.8656 0.4226    
+## Residuals  174 2901.9    16.7                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># Verificando os coeficientes e R²
+summary(Mod5)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = MSC ~ ETP + Regime + ETP:Regime, data = Dados %&gt;% 
+##     mutate(Regime = as.factor(Regime)))
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -10.7723  -2.7332   0.0363   2.3719  13.5401 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -44.5609     7.4376  -5.991 1.17e-08 ***
+## ETP            1.5263     0.1617   9.441  &lt; 2e-16 ***
+## RegimeR2       0.8085    10.5073   0.077    0.939    
+## RegimeR3       9.0687    12.7623   0.711    0.478    
+## ETP:RegimeR2   0.2416     0.2536   0.953    0.342    
+## ETP:RegimeR3   0.4652     0.4173   1.115    0.267    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.084 on 174 degrees of freedom
+## Multiple R-squared:  0.6332, Adjusted R-squared:  0.6226 
+## F-statistic: 60.07 on 5 and 174 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="r"><code># Extraindo os coeficientes
+coef(Mod5)</code></pre>
+<pre><code>##  (Intercept)          ETP     RegimeR2     RegimeR3 ETP:RegimeR2 ETP:RegimeR3 
+##  -44.5609499    1.5263290    0.8084792    9.0687119    0.2415938    0.4651792</code></pre>
+<ul>
+<li>Com os coeficientes simbólicos</li>
+</ul>
+<p><span class="math display">\[
+\operatorname{MSC} = \beta_{0} + \beta_{1}(\operatorname{ETP}) + \\ \beta_{2}(\operatorname{Regime}_{\operatorname{R2}}) + \\ \beta_{3}(\operatorname{Regime}_{\operatorname{R3}}) + \\ \beta_{4}(\operatorname{ETP} \times \operatorname{Regime}_{\operatorname{R2}}) + \\ \beta_{5}(\operatorname{ETP} \times \operatorname{Regime}_{\operatorname{R3}}) + \epsilon
+\]</span></p>
+<ul>
+<li>Com os coeficientes numéricos</li>
+</ul>
+<p><span class="math display">\[
+\operatorname{\widehat{MSC}} = -44.56 + 1.53(\operatorname{ETP}) + \\ 0.81(\operatorname{Regime}_{\operatorname{R2}}) + \\ 9.07(\operatorname{Regime}_{\operatorname{R3}}) + \\ 0.24(\operatorname{ETP} \times \operatorname{Regime}_{\operatorname{R2}}) + \\ 0.47(\operatorname{ETP} \times \operatorname{Regime}_{\operatorname{R3}})
+\]</span></p>
+<pre class="r"><code>coef(Mod5)</code></pre>
+<pre><code>##  (Intercept)          ETP     RegimeR2     RegimeR3 ETP:RegimeR2 ETP:RegimeR3 
+##  -44.5609499    1.5263290    0.8084792    9.0687119    0.2415938    0.4651792</code></pre>
+<pre class="r"><code># Obtendo Interceptos:
+# b0 ==&gt; Intercepto para R1 
+b0 &lt;- coef(Mod5)[1]
+
+# b0_b2 ==&gt; Intercepto para R2
+b0_b2 &lt;- coef(Mod5)[1] + coef(Mod5)[3]
+
+# b0_b3 ==&gt; Intercepto para R3
+# b1 ==&gt; Inclinação para R1
+b0_b3 &lt;- coef(Mod5)[1] + coef(Mod5)[4]
+
+# Obtendo Inclinações:
+# b1 ==&gt; Inclinação para R1
+b1 &lt;- coef(Mod5)[2]
+
+# b1_b5 ==&gt; Inclinação para R2
+b1_b5 &lt;- coef(Mod5)[2] + coef(Mod5)[5]
+
+# b1_b6 ==&gt; Inclinação para R3
+b1_b6 &lt;- coef(Mod5)[2] + coef(Mod5)[6]</code></pre>
+<pre class="r"><code># Camada 1: Inserindo coordenadas
+ggplot(Dados, aes(x = ETP, y = MSC)) +
+  
+# Camada 2: Inserindo pontos e mapeando RI por cores  
+  geom_point(aes(colour = Regime)) +
+  
+# Camada 3: Configurando cores manualmente  
+  scale_color_manual(values = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)) +
+  
+# Camada 4: Plotando e configurando as retas  
+  geom_abline(
+    intercept = c(b0, b0_b2, b0_b3),
+    slope = c(b1, b1_b5, b1_b6),
+    colour = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+  ) </code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%205-1.png" width="672" /></p>
+<ul>
+<li>Utilizando <code>geom_smooth</code></li>
+</ul>
+<pre class="r"><code># Camada 1: Inserindo coordenadas
+ggplot(Dados, aes(x = ETP, y = MSC)) +
+  
+# Camada 2: Inserindo pontos e mapeando RI por cores  
+  geom_point(aes(colour = Regime)) +
+  
+# Camada 3: Configurando cores manualmente  
+  scale_color_manual(values = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)) +
+  
+# Camada 4: Plotando e configurando as retas  
+  geom_smooth(aes(colour = Regime), method = &quot;lm&quot;, se = T)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot-1.png" width="672" /></p>
+</div>
+<div id="obtendo-r²-no-gráfico-função-stat_cor" class="section level4">
+<h4>2.3.2. Obtendo R² no gráfico: Função <code>stat_cor</code></h4>
+<ul>
+<li>Instale o pacote <code>ggpubr</code></li>
+</ul>
+<pre class="r"><code># install.packages(&quot;ggpubr&quot;)</code></pre>
+<pre class="r"><code># Camada 1: Inserindo coordenadas
+ggplot(Dados, aes(x = ETP, y = MSC)) +
+  
+# Camada 2: Inserindo pontos e mapeando RI por cores  
+  geom_point(aes(colour = Regime)) +
+  
+# Camada 3: Configurando cores manualmente  
+  scale_color_manual(values = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)) +
+  
+# Camada 4: Plotando e configurando as retas  
+  geom_abline(
+    intercept = c(b0, b0_b2, b0_b3),
+    slope = c(b1, b1_b5, b1_b6),
+    colour = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
+  ) +
+  
+# Camada 5: Inserindo R²
+    ggpubr::stat_cor(
+    aes(label = ..rr.label.., colour = Regime),
+    geom = &quot;label&quot;,
+    size = 4
+  )</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%206-1.png" width="672" /></p>
+<pre class="r"><code>summary(lm(MSC ~ ETP, data = Dados %&gt;%
+     filter(Regime == &quot;R3&quot;)))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = MSC ~ ETP, data = Dados %&gt;% filter(Regime == &quot;R3&quot;))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -8.4565 -2.7538  0.1721  2.5723  7.1474 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  -35.492      9.111  -3.896 0.000256 ***
+## ETP            1.992      0.338   5.892 2.05e-07 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.587 on 58 degrees of freedom
+## Multiple R-squared:  0.3744, Adjusted R-squared:  0.3636 
+## F-statistic: 34.72 on 1 and 58 DF,  p-value: 2.052e-07</code></pre>
+<ul>
+<li>Obtendo subconjuntos gráficos com <code>facet_wrap</code></li>
+</ul>
+<pre class="r"><code>Fig &lt;-
+  # Camada 1: Inserindo coordenadas
+  ggplot(Dados, aes(x = ETP, y = MSC)) +
+  
+  # Camada 2: Inserindo pontos e mapeando Regime por cores
+    geom_point(aes(colour = Regime)) +
+  
+  # Camada 3: Obtendo a Reta de um modelo linear com intervalo de confiança
+    geom_smooth(method = lm, aes(colour = Regime), se = T) +
+  
+  # Camada 4: Obtendo subconjuntos gráficos
+    facet_wrap(~ Regime, ncol = 6) +
+  
+  # Obtendo R²
+    ggpubr::stat_cor(
+      aes(label = ..rr.label..),
+      color = &quot;red&quot;,
+      geom = &quot;label&quot;,
+      size = 4
+  )
+
+# Imprimindo a figura
+Fig</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%207-1.png" width="960" /></p>
+<ul>
+<li>Salvando a figura: Função <code>ggsave</code></li>
+</ul>
+<pre class="r"><code># Salvando figura em formato .tiff
+ggsave(filename = &quot;Fig1_Reg.tiff&quot;, plot = Fig, width = 10, height = 5)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<pre class="r"><code># Salvando figura em formato .png
+ggsave(filename = &quot;Fig1_Reg.png&quot;, plot = Fig, width = 10, height = 5)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<div id="predição-e-intervalos-função-predict-1" class="section level5">
+<h5>2.3.3. Predição e intervalos: Função <code>predict</code></h5>
+<pre class="r"><code># Dados para a predição
+DataPred2 &lt;-
+  data.frame(
+    Clone = c(&quot;C1&quot;, &quot;C5&quot;, &quot;C6&quot;, &quot;C1&quot;, &quot;C5&quot;, &quot;C6&quot;, &quot;C1&quot;, &quot;C5&quot;, &quot;C6&quot;),
+    Regime = c(&quot;R1&quot;, &quot;R1&quot;, &quot;R1&quot;, &quot;R2&quot;, &quot;R2&quot;, &quot;R2&quot;, &quot;R3&quot;, &quot;R3&quot;, &quot;R3&quot;),
+    ETP = rep(30, 9)
+  )
+DataPred2</code></pre>
+<pre><code>##   Clone Regime ETP
+## 1    C1     R1  30
+## 2    C5     R1  30
+## 3    C6     R1  30
+## 4    C1     R2  30
+## 5    C5     R2  30
+## 6    C6     R2  30
+## 7    C1     R3  30
+## 8    C5     R3  30
+## 9    C6     R3  30</code></pre>
+<pre class="r"><code># Predição com intervalo da predição
+predict(Mod4, newdata = DataPred2, interval = &quot;prediction&quot;)</code></pre>
+<pre><code>##         fit       lwr      upr
+## 1  3.188949 -8.093465 14.47136
+## 2 11.377196 -3.593544 26.34794
+## 3 27.257766  2.171848 52.34368
+## 4  4.407081 -4.068873 12.88304
+## 5  6.611906 -5.319980 18.54379
+## 6 20.174595  3.065709 37.28348
+## 7 18.797667  9.609807 27.98553
+## 8 20.639030 12.491762 28.78630
+## 9 24.591469 15.608608 33.57433</code></pre>
+<pre class="r"><code># Predição com intervalo de confiança
+data.frame(DataPred2, predict(Mod4, newdata = DataPred2, interval = &quot;confidence&quot;))</code></pre>
+<pre><code>##   Clone Regime ETP       fit       lwr      upr
+## 1    C1     R1  30  3.188949 -6.198654 12.57655
+## 2    C5     R1  30 11.377196 -2.222704 24.97710
+## 3    C6     R1  30 27.257766  2.965021 51.55051
+## 4    C1     R2  30  4.407081 -1.309212 10.12338
+## 5    C5     R2  30  6.611906 -3.547037 16.77085
+## 6    C6     R2  30 20.174595  4.251398 36.09779
+## 7    C1     R3  30 18.797667 12.070782 25.52455
+## 8    C5     R3  30 20.639030 15.422499 25.85556
+## 9    C6     R3  30 24.591469 18.147401 31.03554</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    <div id="fb_comments_container">
+          <h2>comments</h2>
+          <script src="https://utteranc.es/client.js"
+        repo="AraujoMJ/blogdown"
+        issue-term="pathname"
+        label="😄!"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        </div>
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2021
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/imprint/"
+            
+            title=""
+          >
+            
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></body>
+</html>

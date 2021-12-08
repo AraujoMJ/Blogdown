@@ -1,0 +1,29 @@
+  [[main]]
+  name = "Início"
+  identifier = "home"
+  weight = 100
+  url = "/"
+
+  [[main]]
+  name = "Posts"
+  weight = 200
+  identifier = "posts"
+  url = "/post/"
+
+  [[main]]
+  name = "Sobre"
+  weight = 300
+  identifier = "about"
+  url = "/about/"
+
+  [[main]]
+  name = "Contato"
+  weight = 400
+  identifier = "contact"
+  url = "/contact/"
+
+  [[footer]]
+  name = ""
+  weight = 1
+  identifier = "imprint"
+  url = "/imprint/"

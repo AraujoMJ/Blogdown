@@ -1,0 +1,442 @@
+---
+title: "Análise de Variância"
+output:
+  html_notebook:
+    code_folding: "show"
+date: 2021-12-07T11:55:12-08:00
+---
+
+
+## 1. Introdução
+
+De acordo com [Ramalho et. al, (2012)](#Referências), a análise de variância é o procedimento mais frequentemente utilizado na análise e interpretação de dados experimentais em ciências agrárias. Esta técnica foi idealizada por **Fisher** no início do século XX e visa à *decomposição da soma de quadrados total* em componentes associados às fontes de variação previamente estabelecidas.
+
+Na pesquisa, utilizamos o **delineamento experimental** que, por sua vez, é o plano de distribuição dos tratamentos nas parcelas experimentais. Com isso, podemos identificar as **fontes de variação** em que a *soma de quadrados total* será decomposta. 
+
+Em suma, os objetivos do delineamento experimental são:
+
+* Permitir a estimativa do erro experimental
+* Contribuir para aumentar a precisão dos experimentos
+* Fornecer informações sobre o procedimento mais apropriado para proceder s testes de significância.
+
+De acordo com [Banzatto e Kronka, (2006)](#Referências), os pressupostos da análise de variância, para que as hipóteses postuladas sejam aceitas são:
+
+* **Aditividade:**
+
+  * Os efeitos dos fatores que ocorrem no modelo matemático devem ser aditivos
+
+* **Independência:** 
+
+  * Os erros ou desvios $\epsilon_{ij}$ devidos aos efeitos de fatores não controlados devem ser independentes.
+  * Isso implica que os efeitos de tratamentos sejam independentes, que não haja correlação entre eles.
+  * A *não independência* pode ocorrer quando os tratamentos são quantitativos, por exemplo, quando são níveis crescentes de adubação, inseticidas etc., ocasião em que deve ser realizada a **análise de regressão.**
+
+* **Homogeneidade de variâncias:**
+
+  * Os erros ou desvios $\epsilon_{ij}$ devidos aos efeitos de fatores não controlados devem possuir uma variância comum $\sigma^2$.
+  * Isso significa que a variabilidade das repetições de um tratamento deve ser semelhante à dos outros tratamentos, isto é, os tratamentos devem possuir variâncias homogêneas.
+  
+* **Normalidade:**
+
+  * Os erros ou desvios $\epsilon_{ij}$ devidos aos efeitos de fatores não controlados devem possuir uma **distribuição normal de probabilidades**.
+  * Os dados experimentais (**amostras da população**) devem se ajustar a uma distribuição normal de probabilidade.
+   
+## 2. Análise de Variância
+
+* Instale os seguintes pacotes:
+
+  *  `lmerTest`
+  *  `car`
+  *  `emmeans`
+  *  `multcomp`
+```{r int pct, eval=F, echo=F, results=F}
+# install.packages("lmerTest")
+# install.packages("car")
+# install.packages("emmeans")
+# install.packages("multcomp")
+```
+
+
+```{r pct, message=F, warning=F}
+library(tidyverse) # Manipulação de dados
+library(lmerTest) # Realizar a análise de variância
+library(car)     # Obter a tabela da Anova corretamente
+library(emmeans) # Obter as estimativas do modelo (Médias ajustadas)
+library(multcomp) # Realizar as comparações múltiplas
+```
+
+
+* Inserindo dados:
+
+* O **conjunto de dados** consiste em:
+
+  * Um experimento conduzido em **casa de vegetação**
+  * **Cultura:** [**Eucalipto**]{style="color: green"}
+  * **Material:** Clones comerciais
+  * **Tratamentos:** 
+    
+    * Regimes de irrigação na parcela (R1 - Sem restrição hídrica, R2 - Com restrição hidrica e R3 - Com estresse hídrico)
+    * Mudas de clones de eucalipto na subparcela
+  
+  * Nº de repetições/bloco: 6
+  * Nº de plantas por parcela: 1
+  * **Caracteres estudados:** Evapotranspiração (ETP) e Diâmetro do coleto (DIAM)
+  
+
+Fonte: [Araujo, 2018](https://repositorio.unesp.br/bitstream/handle/11449/180449/araujo_mj_dr_jabo.pdf?sequence=3&isAllowed=y)
+
+```{r data}
+Dados <- openxlsx::read.xlsx("DataSet2_v2.xlsx")
+head(Dados, 10)
+```
+
+### 2.1. Ajuste do modelo com a função `lm` 
+
+
+### 2.1.1. Verificando efeito da interação
+
+#### 2.1.1.1. Caractere **DIAM**
+```{r Mod1}
+# Ajustando o modelo
+lm1 <-
+  lm(
+    DIAM ~ Bloco + Regime + Clone + Regime:Clone,
+    data = Dados %>%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0("C",1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+
+  ## Usando `anova` do R base
+anova(lm1)
+
+  ## Usando `Anova` do pacote car
+Anova(lm1)
+```
+
+* Invertendo a ordem dos efeitos principais (Regime e Clone) com **dados balanceados**  
+```{r Mod1.1}
+# Ajustando o modelo
+lm1.1 <-
+  lm(
+    DIAM ~ Bloco + Clone + Regime + Regime:Clone,
+    data = Dados %>%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0("C",1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+  ## Usando `anova` do R base
+anova(lm1.1)
+  ## Usando `Anova` do pacote car
+Anova(lm1.1)
+```
+
+* Verificando quando há desbalanceamento
+```{r Mod1.2}
+# Ajustando o modelo
+lm1.2 <-
+  lm(
+    DIAM ~ Bloco + Regime + Clone + Regime:Clone,
+    data = Dados[-1,] %>%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0("C",1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+
+  ## Usando `anova` do R base
+anova(lm1.2)
+
+  ## Usando `Anova` do pacote car
+Anova(lm1.2)
+```
+
+* Invertendo a ordem dos efeitos principais (Regime e Clone) com **dados DESbalanceados**  
+
+```{r Mod1.3}
+# Ajustando o modelo
+lm1.3 <-
+  lm(
+    DIAM ~ Bloco + Clone + Regime + Regime:Clone,
+    data = Dados[-1,] %>%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0("C",1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+
+  ## Usando `anova` do R base
+anova(lm1.3)
+
+  ## Usando `Anova` do pacote car
+Anova(lm1.3)
+```
+
+**Notas:**
+
+* A função `anova` do **R base** usa a soma de quadrados tipo I
+* A função `Anova` pacote **`car`** utiliza a soma de quadrados tipo II ou III, a escolha do pesquisador.
+* Quando os dados são balanceados, a tabela da anova é a mesma para `anova` e `Anova`, contudo, quando há desbalanceamento, isto é, ocorre ortogonalidade, haverá diferenças e, a função `Anova` deve ser preferida.
+
+
+* **Conclusões:**  
+
+  * Os efeitos de **Clone** e **Regime de Irrigação (RI)** são significativos (alpha < 0,001), portanto, rejeita-se $H_0$.
+  * Pelo menos dois clones diferem-se entre si, na média, para o caractere DIAM
+  * O **RI** afeta de maneira diferenciada o desempenho das plantas para DIAM.
+  * A interação Clone x RI é não significativa, portanto, são independentes para o DIAM das plantas durante o desenvolvimento das mudas. Com isso, as comparaçõe múltiplas devem ser realizadas para RI e clone independentemente.
+
+
+
+#### 2.1.1.2. Caractere **ETP**
+```{r Mod2}
+# Ajustando o modelo
+lm2 <-
+  lm(
+    ETP ~ Bloco + Regime + Clone + Regime:Clone,
+    data = Dados %>%
+      mutate(Regime = as.factor(Regime), Clone = factor(Clone, levels = paste0("C",1:10)))
+  )
+
+# Obtendo a tabela da ANOVA
+
+  ## Usando `Anova` do pacote car
+Anova(lm2)
+```
+
+Quanto ao caractere **ETP**, a interação Clone x RI foi significativa. Portanto, a evapotranspiração das plantas depende do material genético e em qual regime de irrigação está submetido. Com isso, devemos desdobrar a interação, conforme veremos adiante.
+
+### 2.1.2. Comparações múltiplas
+
+#### 2.1.2.1. Caractere **DIAM**
+
+* Primeiramente iremos obter as médias ajustadas com a função `emmeans`
+```{r emmeans 1, message=F, warning=F}
+# Especificando o efeito
+
+  ## Regime
+emm_lm1.Reg <-
+  emmeans::emmeans(lm1, specs = ~ Regime)
+emm_lm1.Reg
+
+  ## Clone
+emm_lm1.Clone <-
+  emmeans::emmeans(lm1, specs = ~ Clone)
+emm_lm1.Clone
+```
+
+* Realizando as comparações com a função `cld`
+```{r Comp mult 1}
+# Comparações múltiplas para Regime: Inserindo letras
+comp_lm1.Reg <- cld(emm_lm1.Reg, Letters = letters, reversed = T, adjust = "tukey")
+comp_lm1.Reg
+
+# Comparações múltiplas para Clones: Inserindo letras
+comp_lm1.Clone <- cld(emm_lm1.Clone, Letters = letters, reversed = T, adjust = "sidak")
+comp_lm1.Clone
+```
+
+Podemos observar que o regime de irrigação mais restritivo (R3) afeta negativamente o diâmetro das plantas. Isto é o esperado, uma vez que, a restrição hídrica acarreta em disturbio na atividade fisiológica da planta e, consequentemente compromente no metabolismo e mecanismo de alocação de biomassa. Portanto, o regime R3 foi um ambiente de estresse para as plantas.  
+
+* Análise Gráfica com `ggplot2`
+
+```{r ggplot2, warning=F, message=F}
+# Obtendo o data frame
+Clone <- as.data.frame(comp_lm1.Clone) %>%
+  
+  # Ordenando os levels por médias
+  mutate(Clone = factor(Clone, levels = Clone)) %>%
+  
+  # Renomeando variável: função `rename` do tidyverse
+  rename(DIAM = emmean)
+
+# Criando o gráfico
+# Camada 1: Configurando as coordenadas
+ggplot(Clone, aes(x = Clone, y = DIAM)) +
+  
+  # Camada 2: Inserindo e configurando as barras
+  geom_bar(stat = "identity", alpha = 0.7) +
+  
+  # Camada 3: Inserindo as letras
+  geom_label(aes(label = .group), nudge_y = 1.5) +
+  
+  # Camada 4: Inserindo barra de intervalo de confiança
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL),
+                width = 0.2,
+                color = "grey20") +
+  
+  # Camada 5: Configurando o tema
+  theme_classic() +
+  
+  # Camada 6: Configurando títulos
+  labs(x = "Clones", y = "Diâmetro (mm)") +
+  
+  # Camada 7: Anotando no gráfico: Função `annotate`
+  annotate(
+    geom = "text",
+    x = 9,
+    y = 10,
+    label = expression(paste(alpha, " = 0,05"))
+  )
+```
+
+O Clone [**C10**]{style="color: blue"} teve DIAM estatisticamente maior em relação aos clones C1, C7, C4, C3 e C9. Por outro lado, o clone [**C1**]{style="color: red"} teve o menor DIAM dentre os clones (porém, não diferiu dos clones C7 e C4).  
+
+#### 2.1.2.2. Caractere **ETP**
+
+Vimos que há interação RI x Clone significativa para o caractere ETP. Por isso, temos que estudar/comparar o desempenho dos clones quanto à evapotranspiração dentro de cada regime de irrigação, assim como, checar se os regimes de irrigação afetam cada clone para esse caractere.  
+
+* Desdobramento de interação: Clone dentro de Regime
+```{r Comp mult 2}
+# Configurando o desdobramento
+emm_lm2.1 <-
+  emmeans(lm2, specs = ~ Clone | Regime , adjust = "sidak")
+
+# Comparações múltiplas: Inserindo letras
+comp_lm2.1 <- cld(emm_lm2.1, Letters = letters, reversed = T)
+comp_lm2.1
+```
+
+Observamos que há diferenças entre os clones para a evapotranspiração somente nos regimes de irrigação R1 e R2. Contudo, em R3, a intensidade do estresse afeta demasiadamente a atividade fisiológica das plantas, inibindo a diferença entre os genótipos.  
+
+* Desdobramento de interação: Regime dentro de Clones
+```{r Comp mult 3}
+# Configurando o desdobramento
+emm_lm2.2 <-
+  emmeans(lm2, specs = ~ Regime | Clone , adjust = "sidak")
+
+# Comparações múltiplas: Inserindo letras
+comp_lm2.2 <- cld(emm_lm2.2, Letters = letters, reversed = T)
+comp_lm2.2
+```
+
+Os regimes de irrigação afetaram de maneira semelhante os clones quanto à evapotranspiração. Portanto, na medida em que a disponibilidade hídrica se tornara mais escassa, menor a ETP dos genótipos.  
+
+```{r Comp mult 4, fig.height=6, fig.width=10}
+# Plotando o desdobramento da interação
+plot_lm2 <- plot(emm_lm2.1, comparison = T) +
+  
+# Configurando os "labels"
+  labs(x = "ETP", y = "Clones", title = "Interação Regime vs Clone") +
+  
+# Configurando o tema
+  theme(
+    strip.text.y = element_text(size = 12),
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12)
+  ) +
+  
+# Alterando o tema
+theme_bw()
+plot_lm2
+```
+
+* Salvando o gráfico
+```{r ggsave 1}
+ggsave(filename = "plot_lm2.png", plot = plot_lm2)
+```
+
+### 2.2. Ajuste do modelo com a função `lmer`: **Parcela Subdividida**
+
+Até aqui consideramos o experimento como delineado em blocos completamente casualizados. No entanto, o delineamento correto é em *parcelas subdivididas*, sendo planejado como Regime de irrigação na parcela (casualizado dentro do bloco) e Clone na subparcela (casualizado dentro de Regime de irrigação). Brevemente, esse arranjo contém dois tipos de erro:
+
+* **Erro a:**
+
+  * Consiste no resíduo entre parcelas, no presente caso, é o efeito da interação Bloco:Regime.
+  
+  * Nesse caso, os efeitos de Bloco e Regime (Parcela) são testados com o **Erro a**  
+    
+* **Erro b:**
+
+  * Consiste no resíduo dentro da parcela, ou erro puro.
+  
+Para modelar isso, utilizaremos a função `lmer`, da seguinte maneira:
+```{r lmer 1}
+lmer1 <-
+  lmerTest::lmer(
+    DIAM ~ Bloco + Regime + (1|Bloco:Regime) + Clone + Regime:Clone,
+    data = Dados[-1,] %>%
+      mutate(Bloco = as.factor(Bloco), Regime = as.factor(Regime), Clone = as.factor(Clone))
+  )
+
+anova(lmer1, ddf = "Kenward-Roger")
+```
+
+```{r lmer 2}
+lmer1 <-
+  lmerTest::lmer(
+    DIAM ~ Regime + Bloco + (1|Bloco:Regime) + Clone + Regime:Clone,
+    data = Dados[-1,] %>%
+      mutate(Bloco = as.factor(Bloco), Regime = as.factor(Regime), Clone = as.factor(Clone))
+  )
+
+anova(lmer1, ddf = "Kenward-Roger")
+```
+
+**Notas:** 
+
+* Observe os graus de liberdade do denominador (DenDF na tabela da ANOVA)  
+* A função `lmer` utiliza a soma de quadrados tipo 3 para compor a tabela da ANOVA. Portanto, a ordem em que os efeitos entram no modelo, não importa.  
+
+
+
+#### 2.2.1. Comparações múltiplas
+
+```{r emmeans 2, message=F, warning=F}
+# Especificando o efeito
+
+## Regime
+emm_lmer1.Reg <-
+  emmeans::emmeans(lmer1, specs = ~ Regime)
+emm_lmer1.Reg
+
+## Clone
+emm_lmer1.Clone <-
+  emmeans::emmeans(lmer1, specs = ~ Clone)
+emm_lmer1.Clone
+```
+
+* Realizando as comparações com a função `cld`
+```{r Comp mult 5}
+# Comparações múltiplas para Regime: Inserindo letras
+comp_lmer1.Reg <-
+  cld(
+    emm_lmer1.Reg,
+    Letters = letters,
+    reversed = T,
+    adjust = "tukey"
+  )
+comp_lmer1.Reg
+
+# Comparações múltiplas para Clones: Inserindo letras
+comp_lmer1.Clone <-
+  cld(
+    emm_lmer1.Clone,
+    Letters = letters,
+    reversed = T,
+    adjust = "sidak"
+  )
+comp_lmer1.Clone
+```
+
+### 2.3. Gráfico de interação
+```{r Interacao}
+# Obtendo médias
+Medias <- Dados %>%
+  group_by(Regime, Clone) %>%
+  summarise(DIAM = mean(DIAM, na.rm = T))
+
+# Camada 1: Configurando as coordenadas e mapeando as variáveis Regime e Clone
+ggplot(Medias, aes(x = Regime, y = DIAM)) +
+  
+# Camada 2: Inserindo linhas e mapeando Clone por cores
+  geom_line(aes(group = Clone, colour = Clone))
+```
+
+
+Na figura, observamos um tendência de interação RI x Clone. Contudo, como pudemos observar, estatísticamente não há essa interação. A interpretação dessas duas verificações é que, a interação observada via análise gráfica é mais provável ser efeito do acaso ou de algum fator não descrito no modelo, do que dos efeitos de RI e Clone propriamente.  
+
+## {#Referências}
+
+## Referências
+Ramalho, M. A. P.; Ferreira, D. F.; Oliveira, A. C. **Experimentação em genética e melhoramento de plantas**. 3ª ed. 2012. 328 p.
+
+Banzatto, D. A; Kronka, S. N. **Experimentação agrícola**. 4ª ed. 2006. 237 p.
