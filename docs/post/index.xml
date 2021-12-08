@@ -6,7 +6,29 @@
     <description>Recent content in Posts on Blog do Araujo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Dec 2021 11:55:12 -0800</lastBuildDate><atom:link href="https://araujomj.github.io/blogdown/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 08 Dec 2021 11:55:12 -0800</lastBuildDate><atom:link href="https://araujomj.github.io/blogdown/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Delineamento de Experimentos - DDE</title>
+      <link>https://araujomj.github.io/blogdown/post/aula8_doe_v1/</link>
+      <pubDate>Wed, 08 Dec 2021 11:55:12 -0800</pubDate>
+      
+      <guid>https://araujomj.github.io/blogdown/post/aula8_doe_v1/</guid>
+      
+        <description>Delineamento de experimento em R: O objetivo desse post é demonstrar como realizar o planejamento de experimentos a serem implantados utilizando pacotes do R e, posteriormente, irei apresentar uma função que elaborei para esse propósito.</description>
+      
+    </item>
+    
+    <item>
+      <title>Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos</title>
+      <link>https://araujomj.github.io/blogdown/post/ima_sob_v1/</link>
+      <pubDate>Wed, 08 Dec 2021 11:55:12 -0800</pubDate>
+      
+      <guid>https://araujomj.github.io/blogdown/post/ima_sob_v1/</guid>
+      
+        <description>Nesse post iremos iniciar as análises utilizadas em um contexto altamente prático. Quando iniciamos uma análise em um conjunto de dados, a primeira abordagem será realizar uma análise descritiva, de modo a verificar e responder a seguinte questão: O que aconteceu?</description>
+      
+    </item>
+    
     <item>
       <title>Análise de Variância</title>
       <link>https://araujomj.github.io/blogdown/post/aula7_anova_v1/</link>

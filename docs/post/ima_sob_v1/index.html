@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html
+  dir="ltr"
+  lang="en"
+  data-theme=""
+><head>
+  <title>
+    Marcio Araujo
+      |
+      Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos
+
+
+    
+
+  </title>
+
+  
+  <meta charset="utf-8" /><meta name="generator" content="Hugo 0.89.4" /><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta
+    name="description"
+    content="
+      Consultoria, conselhos e compartilhando conhecimento
+
+
+    "
+  />
+  
+  
+  
+  <link
+    rel="stylesheet"
+    href="/blogdown/css/main.min.35e77d74ec27f743c169cf1c4c9339cbcca3f960babea337348e065be3c549c7.css"
+    integrity="sha256-Ned9dOwn90PBac8cTJM5y8yj&#43;WC6vqM3NI4GW&#43;PFScc="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  
+  <link
+    rel="stylesheet"
+    href="/blogdown/css/markupHighlight.min.058b31f17db60602cc415fd63b0427e7932fbf35c70d8e341a4c39385f5f6f3e.css"
+    integrity="sha256-BYsx8X22BgLMQV/WOwQn55MvvzXHDY40Gkw5OF9fbz4="
+    crossorigin="anonymous"
+    type="text/css"
+  />
+  
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous"
+  />
+  
+  <link rel="shortcut icon" href="/blogdown/favicons/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/blogdown/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/blogdown/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/blogdown/favicons/favicon-16x16.png" />
+
+  <link rel="canonical" href="/blogdown/post/ima_sob_v1/" />
+
+  
+  
+  
+  
+  <script
+    type="text/javascript"
+    src="/blogdown/js/anatole-header.min.2a2cd9614b7d007dfbb75e8da19e3a0fa872ceab53c6d000c00b7a0c89b85bfc.js"
+    integrity="sha256-KizZYUt9AH37t16NoZ46D6hyzqtTxtAAwAt6DIm4W/w="
+    crossorigin="anonymous"
+  ></script>
+
+  
+    
+    
+    <script
+      type="text/javascript"
+      src="/blogdown/js/anatole-theme-switcher.min.7fd87181cdd7e8413aa64b6867bb32f3a8dc242e684fc7d5bbb9f600dbc2b6eb.js"
+      integrity="sha256-f9hxgc3X6EE6pktoZ7sy86jcJC5oT8fVu7n2ANvCtus="
+      crossorigin="anonymous"
+    ></script>
+
+  
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://araujomj.github.io/blogdown/images/site-feature-image.png"/>
+
+<meta name="twitter:title" content="Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos"/>
+<meta name="twitter:description" content="Nesse post iremos iniciar as análises utilizadas em um contexto altamente prático. Quando iniciamos uma análise em um conjunto de dados, a primeira abordagem será realizar uma análise descritiva, de modo a verificar e responder a seguinte questão: O que aconteceu?"/>
+
+
+
+  
+
+
+  
+  
+  
+  
+  <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "articleSection": "post",
+        "name": "Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos",
+        "headline": "Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos",
+        "alternativeHeadline": "",
+        "description": "
+      
+        Nesse post iremos iniciar as análises utilizadas em um contexto altamente prático. Quando iniciamos uma análise em um conjunto de dados, a primeira abordagem será realizar uma análise descritiva, de modo a verificar e responder a seguinte questão: O que aconteceu?
+
+
+      
+
+
+    ",
+        "inLanguage": "en",
+        "isFamilyFriendly": "true",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/araujomj.github.io\/blogdown\/post\/ima_sob_v1\/"
+        },
+        "author" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "creator" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "accountablePerson" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "copyrightHolder" : {
+            "@type": "Person",
+            "name": "Marcio Araujo"
+        },
+        "copyrightYear" : "2021",
+        "dateCreated": "2021-12-08T11:55:12.00Z",
+        "datePublished": "2021-12-08T11:55:12.00Z",
+        "dateModified": "2021-12-08T11:55:12.00Z",
+        "publisher":{
+            "@type":"Organization",
+            "name": "Marcio Araujo",
+            "url": "https://araujomj.github.io/blogdown/",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https:\/\/araujomj.github.io\/blogdown\/favicons\/favicon-32x32.png",
+                "width":"32",
+                "height":"32"
+            }
+        },
+        "image": 
+      [
+        
+        "https://araujomj.github.io/blogdown/images/site-feature-image.png"
+
+
+      
+      ]
+
+    ,
+        "url" : "https:\/\/araujomj.github.io\/blogdown\/post\/ima_sob_v1\/",
+        "wordCount" : "1622",
+        "genre" : [ ],
+        "keywords" : [ ]
+    }
+  </script>
+
+
+
+</head>
+<body>
+    <header><div
+  class="page-top 
+    .
+
+  "
+>
+  <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
+  <nav>
+    <ul class="nav__list" id="navMenu">
+      <div class="nav__links">
+        
+        
+          
+          <li>
+            <a
+              
+              href="/blogdown/"
+              
+              title=""
+              >Início</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blogdown/post/"
+              
+              title=""
+              >Posts</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blogdown/about/"
+              
+              title=""
+              >Sobre</a
+            >
+          </li>
+
+        
+          
+          <li>
+            <a
+              
+              href="/blogdown/contact/"
+              
+              title=""
+              >Contato</a
+            >
+          </li>
+
+        
+      </div>
+      <ul>
+        
+        
+          <li>
+            <a class="theme-switch" title="Switch Theme">
+              <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a>
+          </li>
+
+        
+      </ul>
+    </ul>
+  </nav>
+</div>
+</header>
+    <div class="wrapper">
+      <aside><div
+  class="sidebar
+    .
+
+  "
+>
+  <div class="sidebar__content">
+    <div class="logo-title">
+      <div class="title">
+        <img src="/blogdown/images/Araujo2.jpg" alt="profile picture" />
+        <h3 title=""><a href="/blogdown">Blog do Araujo</a></h3>
+        <div class="description">
+          <p>Consultoria, conselhos e compartilhando conhecimento</p>
+        </div>
+      </div>
+    </div>
+    <ul class="social-links">
+      
+        <li>
+          <a href="https://www.linkedin.com/in/marcio-araujo-aa419972/" rel="me" aria-label="Linkedin" title="Linkedin">
+            <i class="fab fa-linkedin fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://github.com/AraujoMJ" rel="me" aria-label="GitHub" title="GitHub">
+            <i class="fab fa-github fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="https://www.instagram.com/marcio.araujo04" rel="me" aria-label="instagram" title="instagram">
+            <i class="fab fa-instagram fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+        <li>
+          <a href="mailto:marcio_ok66@hotmail.com" rel="me" aria-label="e-mail" title="e-mail">
+            <i class="fas fa-envelope fa-2x" aria-hidden="true"></i>
+          </a>
+        </li>
+
+      
+    </ul>
+  </div><footer class="footer footer--sidebar">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2021
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/blogdown/imprint/"
+            
+            title=""
+          >
+            
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/blogdown/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></div>
+</aside>
+      <main>
+        <div class="autopagerize_page_element">
+          <div class="content">
+  <div
+    class="post 
+      .
+
+    "
+  >
+    <div class="post-content">
+      
+      <div class="post-title">
+        <h1>Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos</h1>
+        
+          <div class="info">
+            <em class="fas fa-calendar-day"></em>
+            <span class="date"
+              >
+                Wed, Dec 8, 2021
+
+
+              </span
+            >
+            <em class="fas fa-stopwatch"></em>
+            <span class="reading-time">8-minute read</span>
+          </div>
+
+        
+      </div>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Nesse post iremos iniciar as análises utilizadas em um contexto altamente prático. Quando iniciamos uma análise em um conjunto de dados, a primeira abordagem será realizar uma <strong>análise descritiva</strong>, de modo a verificar e responder a seguinte questão: <strong><em>O que aconteceu?</em></strong>. A resposta a essa primeira pergunta é fundamental para que possamos conhecer o conjunto de dados alvo para a execução do estudo. O próximo passo, será realizar uma <strong>análise diagnóstica</strong>, agora para responder: <strong>Por que aconteceu?</strong>.</p>
+<p>Nesse sentido, sempre que inicio minhas análises, começo com uma análise descritiva e, posteriormente uma análise diagnóstica (irei inserir em um post futuro, em que mostrarei como realizar e toda sua premissa e características), de modo a conhecer meus dados e, tirar algumas, para somente depois seguir com análises mais específicas (por exemplo, estatística inferêncial, estimativa de parâmetros genéticos, análises preditivas ou prescritivas).</p>
+<p>O gráfico que batizei como <strong>IMA-SOB</strong>, foi desenvolvido aplicando a um experimento multi-ambientes com espécies de <strong>eucalipto</strong>. Nesse estudo, foram avaliadas a adaptabilidade e estabilidade de de novas espécies e procedências de eucalipto ao longo de cinco regiões no Brazil <a href="https://link.springer.com/article/10.1007%2Fs11056-021-09886-7">Silva et. al (2021)</a> (<a href="#Fig.1">Figura 1</a>). Os caracteres avaliados no gráfico IMA-SOB são de fundamental importância para inferir sobre a adaptação do genótipo ao longo dos ambientes em que estão sendo testados. Os atributos são a <strong>produtividade</strong>, representada pelo Incremento Médio Anual (IMA, <span class="math inline">\(\ m^3\ ha^{-1}\ ano^{-1}\)</span>) e a <strong>sobrevivência</strong> dos genótipos. O gráfico gerado é o mesmo disponível em <a href="https://link.springer.com/article/10.1007%2Fs11056-021-09886-7">Silva et. al (2021)</a> (<a href="#Fig.1">Figura 1</a>), contudo, iremos utilizar um conjunto de dados diferente, cuja informação são dados de inventário de <span style="color: green"><strong>testes clonais de eucalipto</strong></span> em múltiplos ambientes.<br />
+</p>
+<p>A figura abaixo demonstra o gráfico modelo <strong>IMA-SOB</strong>, extraído de Silva et. al (2021). Portanto, esse é a referência a ser citada em caso de utilização dessa análise<br />
+</p>
+<div id="Fig.1" class="section level2">
+<h2></h2>
+<div class="figure">
+<img src="/english/post/IMA_SOB_v1_files/Fig1.b.tiff" alt="" />
+<p class="caption">Gráfico IMA-SOB, elaborado por <a href="http://lattes.cnpq.br/0015960014138408">Marcio Araujo</a></p>
+</div>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre class="r"><code># Inserindo dados
+Dados &lt;-
+  openxlsx::read.xlsx(&quot;DataSet1.xlsx&quot;, sheet = &quot;Inventario&quot;, sep.names = &quot;_&quot;)
+
+# Criando a coluna Idade em Dados
+Dados$Idade &lt;-
+  as.character(cut(
+    Dados$Idade_meses,
+    breaks = 3,
+    labels = paste0(&quot;Age&quot;, 1:3)
+  ))
+head(Dados, 10)</code></pre>
+<pre><code>##    Local ARV  Clone Idade_meses  DAP  ALT        VOL Idade
+## 1      1   1 Clone1          28 11.2 13.0 0.06351689  Age1
+## 2      1   1 Clone1          28 12.6 14.5 0.08955511  Age1
+## 3      1   2 Clone1          28  9.2 13.0 0.04237192  Age1
+## 4      1   2 Clone1          28 12.4 15.0 0.08941881  Age1
+## 5      1   3 Clone1          28 10.2 13.0 0.05239619  Age1
+## 6      1   3 Clone1          28 13.7 15.5 0.11316899  Age1
+## 7      1   4 Clone1          28  9.4 13.5 0.04586514  Age1
+## 8      1   4 Clone1          28 14.1 15.0 0.11648156  Age1
+## 9      1   5 Clone1          28 11.3 14.0 0.06928641  Age1
+## 10     1   5 Clone1          28 12.1 13.5 0.07711741  Age1</code></pre>
+</div>
+<div id="obtendo-a-sobrevivência" class="section level2">
+<h2>1. Obtendo a sobrevivência</h2>
+<ul>
+<li>Criando a coluna Idade em anos</li>
+</ul>
+<pre class="r"><code>Dados &lt;- Dados %&gt;%
+  mutate(IdadeAnos = Idade_meses/12)</code></pre>
+<ul>
+<li>Obtendo dataset com <strong>plantas vivas</strong><br />
+</li>
+</ul>
+<pre class="r"><code>Vivas &lt;- Dados %&gt;%
+  group_by(Local, Clone, IdadeAnos) %&gt;%
+  filter(!is.na(VOL)) %&gt;%
+  summarise(PlantasVivas = n())</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Local&#39;, &#39;Clone&#39;. You can override using the `.groups` argument.</code></pre>
+<pre class="r"><code>Vivas</code></pre>
+<pre><code>## # A tibble: 75 x 4
+## # Groups:   Local, Clone [25]
+##    Local Clone  IdadeAnos PlantasVivas
+##    &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;        &lt;int&gt;
+##  1     1 Clone1      2.33          159
+##  2     1 Clone1      4.25          159
+##  3     1 Clone1      6.25          159
+##  4     1 Clone3      2.33          160
+##  5     1 Clone3      4.25          159
+##  6     1 Clone3      6.25          159
+##  7     1 Clone4      2.33          119
+##  8     1 Clone4      4.25          119
+##  9     1 Clone4      6.25          118
+## 10     1 Clone6      2.33          114
+## # ... with 65 more rows</code></pre>
+<ul>
+<li>Obtendo dataset com total de plantas</li>
+</ul>
+<pre class="r"><code>TotalPlantas &lt;- Dados %&gt;%
+  group_by(Local, Clone, IdadeAnos) %&gt;%
+  summarise(TotalPlantas = n())</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Local&#39;, &#39;Clone&#39;. You can override using the `.groups` argument.</code></pre>
+<pre class="r"><code>TotalPlantas</code></pre>
+<pre><code>## # A tibble: 75 x 4
+## # Groups:   Local, Clone [25]
+##    Local Clone  IdadeAnos TotalPlantas
+##    &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;        &lt;int&gt;
+##  1     1 Clone1      2.33          160
+##  2     1 Clone1      4.25          160
+##  3     1 Clone1      6.25          160
+##  4     1 Clone3      2.33          160
+##  5     1 Clone3      4.25          160
+##  6     1 Clone3      6.25          160
+##  7     1 Clone4      2.33          160
+##  8     1 Clone4      4.25          160
+##  9     1 Clone4      6.25          160
+## 10     1 Clone6      2.33          160
+## # ... with 65 more rows</code></pre>
+<ul>
+<li>Unindo datasets <strong>Vivas</strong> e <strong>TotalPlantas</strong>: Usando a função <code>merge</code> do <strong>R base</strong><br />
+</li>
+</ul>
+<pre class="r"><code># Unindo datasets
+Plantas &lt;- merge(Vivas, TotalPlantas, all = T)
+# Substituindo NA&#39;s por zeros
+Plantas$PlantasVivas &lt;-
+  replace(Plantas$PlantasVivas,
+          list = is.na(Plantas$PlantasVivas),
+          values = 0)</code></pre>
+<ul>
+<li>Obtendo a coluna <em>Sobrevivência</em></li>
+</ul>
+<pre class="r"><code># Obtendo a coluna Sobrevivência
+Plantas &lt;- Plantas %&gt;%
+  mutate(Sobrevivencia = 100*PlantasVivas/TotalPlantas)</code></pre>
+</div>
+<div id="obtendo-o-ima" class="section level2">
+<h2>Obtendo o IMA</h2>
+<ul>
+<li>Obtendo o volume total por <strong>Clone</strong> em cada <strong>Local</strong> e cada <strong>Idade</strong><br />
+</li>
+</ul>
+<pre class="r"><code>VOLUME &lt;- Dados %&gt;%
+  group_by(Local, Clone, Idade, IdadeAnos) %&gt;%
+  summarise(VOL = sum(VOL,na.rm = T))</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;Local&#39;, &#39;Clone&#39;, &#39;Idade&#39;. You can override using the `.groups` argument.</code></pre>
+<pre class="r"><code>VOLUME</code></pre>
+<pre><code>## # A tibble: 75 x 5
+## # Groups:   Local, Clone, Idade [75]
+##    Local Clone  Idade IdadeAnos   VOL
+##    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1     1 Clone1 Age1       2.33 11.8 
+##  2     1 Clone1 Age2       4.25 30.6 
+##  3     1 Clone1 Age3       6.25 45.5 
+##  4     1 Clone3 Age1       2.33 10.4 
+##  5     1 Clone3 Age2       4.25 24.9 
+##  6     1 Clone3 Age3       6.25 37.0 
+##  7     1 Clone4 Age1       2.33  3.81
+##  8     1 Clone4 Age2       4.25 13.2 
+##  9     1 Clone4 Age3       6.25 21.7 
+## 10     1 Clone6 Age1       2.33  5.71
+## # ... with 65 more rows</code></pre>
+<ul>
+<li><p>Obtendo o IMA</p>
+<ul>
+<li>Primeiro, é necessário fornecer:
+<ul>
+<li>Área Ocupada: Fornecer como uma coluna no dataset ou via script, como faremos a seguir</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre class="r"><code># Inserir a área ocupada: Utilizaremos 3 x 3 = 9 m²
+Area &lt;- 9
+# Obtendo o conjunto de dados Final
+IMA_Surv &lt;- merge(Plantas, VOLUME, all = T) %&gt;%
+  mutate(AreaOcupada = (TotalPlantas*Area) / 10000) %&gt;%
+  mutate(IMA = (VOL/(AreaOcupada))/IdadeAnos)
+
+head(IMA_Surv, 10)</code></pre>
+<pre><code>##    Local  Clone IdadeAnos PlantasVivas TotalPlantas Sobrevivencia Idade
+## 1      1 Clone1  2.333333          159          160        99.375  Age1
+## 2      1 Clone1  4.250000          159          160        99.375  Age2
+## 3      1 Clone1  6.250000          159          160        99.375  Age3
+## 4      1 Clone3  2.333333          160          160       100.000  Age1
+## 5      1 Clone3  4.250000          159          160        99.375  Age2
+## 6      1 Clone3  6.250000          159          160        99.375  Age3
+## 7      1 Clone4  2.333333          119          160        74.375  Age1
+## 8      1 Clone4  4.250000          119          160        74.375  Age2
+## 9      1 Clone4  6.250000          118          160        73.750  Age3
+## 10     1 Clone6  2.333333          114          160        71.250  Age1
+##          VOL AreaOcupada      IMA
+## 1  11.762703       0.144 35.00804
+## 2  30.586612       0.144 49.97812
+## 3  45.463282       0.144 50.51476
+## 4  10.424005       0.144 31.02382
+## 5  24.919621       0.144 40.71833
+## 6  36.973205       0.144 41.08134
+## 7   3.807241       0.144 11.33107
+## 8  13.165199       0.144 21.51176
+## 9  21.673261       0.144 24.08140
+## 10  5.714198       0.144 17.00654</code></pre>
+<ul>
+<li><p>Criando a visualização com <code>ggplot2</code></p>
+<ul>
+<li>Iremos utilizar a função <code>expression</code>, a qual permite escrever, por meio de expressões, nomes com caracteres especiais, assim como inserir fórmulas.<br />
+</li>
+</ul></li>
+</ul>
+<pre class="r"><code># Escrevendo a expressão para inserir nome na legenda
+size.MAI &lt;-
+  expression(paste(&quot;IMA&quot;, &quot; (&quot;, m ^ 3, &quot; &quot;, ha ^ -1, &quot; &quot;, ano ^ -1, &quot;)&quot;))
+
+# Obtendo as classes de IMA para inserir no gráfico
+IMA_Legend &lt;- IMA_Surv %&gt;%
+  select(IMA) %&gt;%
+  unlist() %&gt;%
+  cut(breaks = 4,
+      labels = c(&quot;IMA &lt; 24&quot;, &quot;24 &lt; IMA &lt; 46&quot;, &quot;46 &lt; IMA &lt; 68&quot;, &quot;IMA &gt; 68&quot;)) %&gt;%
+  levels()</code></pre>
+<ul>
+<li>IMA e sobrevivência apenas na idade 3</li>
+</ul>
+<pre class="r"><code># Graph
+ggplot(data = IMA_Surv %&gt;%
+         filter(Idade == &quot;Age3&quot;), aes(x = Local, y = Clone)) +
+  geom_point(aes(colour = Sobrevivencia, size = IMA),
+             alpha = 0.8,
+             show.legend = T) +
+  
+  # Configurar legenda de IMA e sobrevivência
+  labs(color = paste0(&quot;Sobrevivencia&quot;, &quot; (%)&quot;)) +
+  scale_radius(
+    name = size.MAI,
+    breaks = c(24, 46, 68, 90),
+    range = c(1, 10),
+    labels = IMA_Legend
+  )  +
+  
+  # Modificando cores
+  scale_colour_gradient(low = &quot;red&quot;, high = &quot;blue&quot;) +
+  ggtitle(label = &quot;IMA e sobrevivência de Clones de eucalipto&quot;, subtitle = &quot;Idade 3&quot;) + 
+  xlab(&quot;Locais&quot;) + 
+  ylab(&quot;&quot;) +
+  #theme_classic() +
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    plot.subtitle = element_text(size = 13, face = &quot;plain&quot;),
+    legend.title = element_text(size = 14, face = &quot;plain&quot;),
+    legend.text = element_text(size = 12, face = &quot;plain&quot;)
+  ) +
+  theme(
+    axis.text.x = element_text(
+      face = &quot;plain&quot;,
+      angle = 0,
+      colour = &quot;grey10&quot;,
+      size = 12
+    ),
+    axis.title = element_text(size = 15, colour = &quot;grey20&quot;)
+  ) +
+  theme(
+    axis.text.y = element_text(
+      face = &quot;italic&quot;,
+      colour = &quot;grey10&quot;,
+      size = 12
+    )
+  )</code></pre>
+<p><img src="/english/post/IMA_SOB_v1_files/figure-html/ggplot2%202-1.png" width="768" /></p>
+<ul>
+<li><p>Algumas observações/informações:</p>
+<ul>
+<li>Os locais <span style="color: blue"><strong>5</strong></span> e <span style="color: red"><strong>3</strong></span>, de maneira geral, são os <span style="color: blue"><strong>mais</strong></span> e <span style="color: red"><strong>menos</strong></span> produtivos, respectivamente.</li>
+<li>O clone 3 é <em>inapto</em> a ser implantado no local 4</li>
+<li>O gráfico permite indagar sobre a existência de interação G x A.</li>
+</ul></li>
+</ul>
+<p>Agora, iremos obter o gráfico IMA-SOB para cada uma das idades, utilizando a camadade facetas com a função <code>facet_wrap</code></p>
+<ul>
+<li>IMA e sobrevivência nas idades 1, 2 e 3</li>
+</ul>
+<pre class="r"><code># Graph
+ggplot(data = IMA_Surv, aes(x = Local, y = Clone)) +
+  geom_point(aes(colour = Sobrevivencia, size = IMA),
+             alpha = 0.8,
+             show.legend = T) +
+  labs(color = paste0(&quot;Sobrevivencia&quot;, &quot; (%)&quot;)) +
+  scale_radius(
+    name = size.MAI,
+    breaks = c(24, 46, 68, 90),
+    range = c(1, 10),
+    labels = IMA_Legend
+  )  +
+  scale_colour_gradient(low = &quot;red&quot;, high = &quot;blue&quot;) +
+  ggtitle(label = &quot;&quot;, subtitle = &quot;&quot;) + xlab(&quot;&quot;) + ylab(&quot;&quot;) +
+  #theme_classic() +
+  theme(
+    plot.title = element_text(size = 16, face = &quot;bold&quot;),
+    plot.subtitle = element_text(size = 13, face = &quot;plain&quot;),
+    legend.title = element_text(size = 14, face = &quot;plain&quot;),
+    legend.text = element_text(size = 12, face = &quot;plain&quot;),
+    strip.text = element_text(size = 16)
+  ) +
+  theme(
+    axis.text.x = element_text(
+      face = &quot;plain&quot;,
+      angle = 0,
+      colour = &quot;#FFFFFF&quot;,
+      size = 13
+    ),
+    axis.title = element_text(size = 18)
+  ) +
+  theme(
+    axis.text.y = element_text(
+      face = &quot;italic&quot;,
+      colour = &quot;#FFFFFF&quot;,
+      size = 13
+    ),
+    plot.background = element_rect(fill = &quot;#3A3A3A&quot;)
+  ) + 
+  facet_wrap(~Idade, ncol = 2)</code></pre>
+<p><img src="/english/post/IMA_SOB_v1_files/figure-html/ggplot2%203-1.png" width="1152" /></p>
+</div>
+</div>
+    <div class="post-footer">
+      <div class="info">
+        
+
+        
+      </div>
+    </div>
+
+    <div id="fb_comments_container">
+          <h2>comments</h2>
+          <script src="https://utteranc.es/client.js"
+        repo="AraujoMJ/blogdown"
+        issue-term="pathname"
+        label="😄!"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        </div>
+  </div>
+
+
+          </div>
+        </div>
+      </main>
+    </div><footer class="footer footer--base">
+  <div class="by_farbox">
+    <ul class="footer__list">
+      <li class="footer__item">
+        &copy;
+        
+          2021
+
+        
+      </li>
+      
+        <li class="footer__item">
+          <a
+            href="/blogdown/imprint/"
+            
+            title=""
+          >
+            
+          </a>
+        </li>
+
+      
+    </ul>
+  </div>
+</footer>
+  
+  <script
+    type="text/javascript"
+    src="/blogdown/js/medium-zoom.min.71100d84fab0ad794b8399a66ac810700cc78d703f715dc10af4d7ba7b761362.js"
+    integrity="sha256-cRANhPqwrXlLg5mmasgQcAzHjXA/cV3BCvTXunt2E2I="
+    crossorigin="anonymous"
+  ></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR&#43;zwDAROtph0PXGte6ia8heboACF9R5l/DiY&#43;WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous" /><script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.js" integrity="sha384-FaFLTlohFghEIZkw6VGwmf9ISTubWAVYW8tG8&#43;w2LAIftJEULZABrF9PPFv&#43;tVkH" crossorigin="anonymous"></script><script
+      defer
+      src="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/contrib/auto-render.min.js"
+      integrity="sha384-bHBqxz8fokvgoJ/sc17HODNxa42TlaEhB&#43;w8ZJXTc2nZf1VgEaFZeZvT4Mznfz0v"
+      crossorigin="anonymous"
+      onload="renderMathInElement(document.body);"
+    ></script></body>
+</html>
