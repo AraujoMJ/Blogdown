@@ -2,7 +2,7 @@
 title = "Blog do Araujo"
 author = "Marcio Araujo"
 copyright = "{{ YEAR }}"
-description = "Consultoria, conselhos e compartilhando conhecimento"
+description = "Consultoria, conselhos e partilha do conhecimento"
 profilePicture = "images/Araujo2.jpg"
 keywords = "Estatística, Melhoramento genético de plantas, Melhoramento florestal, Genética quantitativa, Gestão de dados no melhoramento, Planejamento experimental"
 favicon = "favicons/"
