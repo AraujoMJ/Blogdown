@@ -1,8 +1,6 @@
 ---
 title: "Análise de Variância"
-output:
-  html_notebook:
-    code_folding: "show"
+output: html_document
 date: 2021-12-07T11:55:12-08:00
 ---
 

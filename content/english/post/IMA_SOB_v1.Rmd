@@ -1,13 +1,7 @@
 ---
 title: "Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos"
-output:
-  html_notebook:
-    code_folding: show
-  pdf_document: default
-  html_document:
-    df_print: paged
+output: html_document
 date: 2021-12-08T11:55:12-08:00
-
 ---
 
 Nesse post iremos iniciar as análises utilizadas em um contexto altamente prático. Quando iniciamos uma análise em um conjunto de dados, a primeira abordagem será realizar uma **análise descritiva**, de modo a verificar e responder a seguinte questão: ***O que aconteceu?***. A resposta a essa primeira pergunta é fundamental para que possamos conhecer o conjunto de dados alvo para a execução do estudo. O próximo passo, será realizar uma **análise diagnóstica**, agora para responder: **Por que aconteceu?**.

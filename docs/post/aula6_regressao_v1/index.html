@@ -135,9 +135,9 @@
             "name": "Marcio Araujo"
         },
         "copyrightYear" : "2021",
-        "dateCreated": "2021-12-05T11:55:12.00Z",
-        "datePublished": "2021-12-05T11:55:12.00Z",
-        "dateModified": "2021-12-05T11:55:12.00Z",
+        "dateCreated": "2021-12-07T11:55:12.00Z",
+        "datePublished": "2021-12-07T11:55:12.00Z",
+        "dateModified": "2021-12-07T11:55:12.00Z",
         "publisher":{
             "@type":"Organization",
             "name": "Marcio Araujo",
@@ -172,7 +172,7 @@
 <body>
     <header><div
   class="page-top 
-    .
+    animated fadeInDown
 
   "
 >
@@ -253,7 +253,7 @@
     <div class="wrapper">
       <aside><div
   class="sidebar
-    .
+    animated fadeInDown
 
   "
 >
@@ -342,7 +342,7 @@
           <div class="content">
   <div
     class="post 
-      .
+      animated fadeInDown
 
     "
   >
@@ -355,7 +355,7 @@
             <em class="fas fa-calendar-day"></em>
             <span class="date"
               >
-                Sun, Dec 5, 2021
+                Tue, Dec 7, 2021
 
 
               </span
@@ -366,7 +366,7 @@
 
         
       </div>
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/blogdown/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="introdução" class="section level2">
@@ -410,7 +410,7 @@ mtext(expression(paste(&quot;y = &quot;, hat(y), &quot; = b0 + b1x&quot;)))
 
 # Plotando a linha, fornecendo o intercepto (b0 = 0) e a inclinação (b1 = 1) da reta
 abline(0, 1)</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Plot%201-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Plot%201-1.png" width="672" /></p>
 <p>Nota-se que há uma associação perfeita e, que, podemos reproduzir ‘y’ <strong>exatamente</strong> pela equação obtida, isto é, a reta <strong>“passa”</strong> por todos os pontos dos dados. Há um ajuste perfeito nesse modelo. Contudo, em um ambiente prático, teremos <strong>mais de um valor/observação</strong> para a variável regressora ‘x’, associado à uma variável resposta ‘y’.</p>
 <p>Para vericar, vamos criar um outro <em>dataset</em> com essas características…</p>
 <pre class="r"><code># Configurar a semente
@@ -468,7 +468,7 @@ mtext(expression(paste(y != hat(y), &quot; = b0 + b1x + &quot;, bold(e))))
 
 # Obtendo a reta
 abline(lm(dt2$y ~ dt2$x))</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Plot%202-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Plot%202-1.png" width="672" /></p>
 <div id="diagnóstico-da-reta" class="section level3">
 <h3>2.1. Diagnóstico da Reta</h3>
 <p>Para a obtenção da Reta utilizamos a função <code>lm</code>, a qual é usada para ajustar um modelo linear (vide <a href="https://www.rdocumentation.org/packages/tram/versions/0.6-0/topics/Lm">R Documentation</a>). Como resultado, obtemos uma lista composta por objetos, tais como, <strong>coeficientes</strong> estimados (intercepto, inclinação), <strong>resíduos</strong> entre outros.
@@ -500,7 +500,7 @@ SQT &lt;- sum((dt2$y - mean(dt2$y))^2)
 
 # Escrevendo SQT no gráfico
 text(paste(&quot;SQT = &quot;, round(SQT, 2)), x = 8, y = 13, col = &quot;red&quot;)</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Reta%201-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Reta%201-1.png" width="672" /></p>
 <p>Agora, observaremos o quão o uso do modelo de regressão é melhor em relação ao modelo de média para explicar a associação entre variáveis.</p>
 <p>Na figura abaixo, temos a <span style="color: blue"><strong><em>linha azul</em></strong></span> indicando a <strong>Reta ajustada com o modelo linear</strong>, isto é, um valor médio de ‘y’ para <strong>CADA VALOR</strong> de ‘x’. O fator residual, representa o desvio em relação à média para cada variável regressora <span style="color: blue">(<strong>Reta azul</strong>)</span>.</p>
 <p>Neste modelo, à uma variabilidade residual em relação à média de cada valor da variável regressora ‘x’, o qual é expressa pelo somatório da diferença entre cada ‘y’ e cada <strong>‘y’ estimado</strong> (ajuste/estimativa de ‘y’ para cada valor de ‘x’). A isto denominamos de <em>Soma de Quadrados do Resíduo</em> (<strong><em>SQRes</em></strong>). A notação matemática é:</p>
@@ -551,7 +551,7 @@ SQRes &lt;- sum((dt2$y - fitted(Reta))^2)
 
   ## Escrevendo SQRes no gráfico
 text(paste(&quot;SQRes = &quot;, round(SQRes, 2)), x = 8, y = 12, col = &quot;blue&quot;)</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Reta%202-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Reta%202-1.png" width="672" /></p>
 </div>
 <div id="falta-de-ajuste-do-modelo-de-regressão" class="section level3">
 <h3>2.2. Falta de ajuste do modelo de regressão</h3>
@@ -674,7 +674,7 @@ Reta3 &lt;- lm(y2 ~ x, data = dt2)
 
   ## Reta da média de cada valor da variável regressora
 abline(Reta3, col = &quot;blue&quot;)</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/plot%20y2%201-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/plot%20y2%201-1.png" width="672" /></p>
 <pre class="r"><code># Teste de falta de ajuste
 # Se há repetições (&#39;y&#39;) de X
   ## Ajustando o modelo com &#39;x&#39; como fator
@@ -741,7 +741,7 @@ head(Dados, 10)</code></pre>
 <h3>1.1. Explorando dados por regime de irrigação (RI)</h3>
 <pre class="r"><code># Considerando todos os clones e RI&#39;s
 plot(MSC ~ ETP, data = Dados, main = &quot;Todos os regimes de irrigação e clones&quot;)</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-1.png" width="672" /></p>
 <pre class="r"><code># Analisando por RI
 for (i in unique(Dados$Regime)) {
   plot(
@@ -751,13 +751,13 @@ for (i in unique(Dados$Regime)) {
     main = paste(&quot;Regime de irrigação&quot;, i, &quot;e todos os clones&quot;)
   )
 }</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-2.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-3.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-4.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-2.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-3.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp1-4.png" width="672" /></p>
 </div>
 <div id="explorando-dados-por-clones" class="section level3">
 <h3>1.2.Explorando dados por clones</h3>
 <pre class="r"><code># Considerando todos os clones e RI&#39;s
 plot(MSC ~ ETP, data = Dados, main = &quot;Todos os regimes de irrigação e clones&quot;)</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-1.png" width="672" /></p>
 <pre class="r"><code># Analisando por clone
 for (i in unique(Dados$Clone)) {
   plot(
@@ -767,7 +767,7 @@ for (i in unique(Dados$Clone)) {
     main = paste(&quot;Clone&quot;, i, &quot;e todos os RI&#39;s&quot;)
   )
 } </code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-2.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-3.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-4.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-5.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-6.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-7.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-8.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-9.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-10.png" width="672" /><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-11.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-2.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-3.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-4.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-5.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-6.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-7.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-8.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-9.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-10.png" width="672" /><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Analise%20Exp2-11.png" width="672" /></p>
 </div>
 </div>
 <div id="modelo-de-regressão-1" class="section level2">
@@ -846,7 +846,7 @@ text(expression(paste(hat(y), &quot; = 3.19 + 0.52*ETP&quot;)), x = 25, y = 35)
 # Inserindo o R²
 #summary(Mod1)[&quot;r.squared&quot;]
 text(paste(&quot;R² = &quot;,round(summary(Mod1)[[&quot;r.squared&quot;]], 2)), x = 25, y = 30)</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/Reg%202-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/Reg%202-1.png" width="672" /></p>
 <p><span class="math display">\[
 \operatorname{\widehat{MSC}} = 3.19 + 0.52(\operatorname{ETP})
 \]</span></p>
@@ -995,7 +995,7 @@ ggplot(Dados, aes(x = ETP, y = MSC)) +
     slope = b1_slope,
     colour = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
   )</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%201-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%201-1.png" width="672" /></p>
 <ul>
 <li>Obtendo o mesmo gráfico com “zoom”</li>
 </ul>
@@ -1014,7 +1014,7 @@ ggplot(Dados, aes(x = ETP, y = MSC)) +
     slope = b1_slope,
     colour = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
   )</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%202-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%202-1.png" width="672" /></p>
 </div>
 <div id="predição-e-intervalos-função-predict" class="section level5">
 <h5>2.2.1.2. Predição e intervalos: Função <code>predict</code></h5>
@@ -1345,7 +1345,7 @@ ggplot(Dados, aes(x = ETP, y = MSC)) +
     slope = c(b1, b1_b5, b1_b6),
     colour = c(&quot;blue&quot;, &quot;green&quot;, &quot;red&quot;)
   ) </code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%205-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%205-1.png" width="672" /></p>
 <ul>
 <li>Utilizando <code>geom_smooth</code></li>
 </ul>
@@ -1361,7 +1361,7 @@ ggplot(Dados, aes(x = ETP, y = MSC)) +
 # Camada 4: Plotando e configurando as retas  
   geom_smooth(aes(colour = Regime), method = &quot;lm&quot;, se = T)</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/ggplot-1.png" width="672" /></p>
 </div>
 <div id="obtendo-r²-no-gráfico-função-stat_cor" class="section level4">
 <h4>2.3.2. Obtendo R² no gráfico: Função <code>stat_cor</code></h4>
@@ -1391,7 +1391,7 @@ ggplot(Dados, aes(x = ETP, y = MSC)) +
     geom = &quot;label&quot;,
     size = 4
   )</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%206-1.png" width="672" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%206-1.png" width="672" /></p>
 <pre class="r"><code>summary(lm(MSC ~ ETP, data = Dados %&gt;%
      filter(Regime == &quot;R3&quot;)))</code></pre>
 <pre><code>## 
@@ -1439,7 +1439,7 @@ ggplot(Dados, aes(x = ETP, y = MSC)) +
 # Imprimindo a figura
 Fig</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%207-1.png" width="960" /></p>
+<p><img src="/blogdown/english/post/Aula6_Regressao_v1_files/figure-html/ggplot%207-1.png" width="960" /></p>
 <ul>
 <li>Salvando a figura: Função <code>ggsave</code></li>
 </ul>

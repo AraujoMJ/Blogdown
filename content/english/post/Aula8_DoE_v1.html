@@ -1,14 +1,10 @@
 ---
 title: "Delineamento de Experimentos - DDE"
-output:
-  html_document:
-    df_print: paged
-  html_notebook:
-    code_folding: show
+output: html_document
 date: 2021-12-08T11:55:12-08:00
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/blogdown/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p><strong>Delineamento de experimento em R:</strong> O objetivo desse post é demonstrar como realizar o planejamento de experimentos a serem implantados utilizando pacotes do R e, posteriormente, irei apresentar uma função que elaborei para esse propósito. Será abordado um dos delineamentos experimentais mais utilizados no melhoramento florestal (<strong>DBC</strong>), de modo que o script possa ser utilizado com dados reais no cotidiano do pesquisador.</p>
@@ -74,28 +70,28 @@ cat(&quot;\nChecando os objetos na lista\n\n&quot;)</code></pre>
 ##   ..$ trt   : chr [1:100] &quot;C1&quot; &quot;C2&quot; &quot;C3&quot; &quot;C4&quot; ...
 ##   ..$ r     : num [1:100] 6 6 6 6 6 6 6 6 6 6 ...
 ##   ..$ serie : num 1
-##   ..$ seed  : int -929375072
+##   ..$ seed  : int 152899518
 ##   ..$ kinds : chr &quot;Super-Duper&quot;
 ##   ..$       : logi TRUE
 ##  $ book      :&#39;data.frame&#39;:  600 obs. of  3 variables:
 ##   ..$ plots: num [1:600] 11 12 13 14 15 16 17 18 19 20 ...
-##   ..$ r    : int [1:600] 1 1 1 1 1 1 1 1 1 1 ...
-##   ..$ Trat : chr [1:600] &quot;C3&quot; &quot;C4&quot; &quot;C61&quot; &quot;C58&quot; ...</code></pre>
+##   ..$ r    : int [1:600] 1 1 1 1 1 1 1 1 2 1 ...
+##   ..$ Trat : chr [1:600] &quot;C40&quot; &quot;C9&quot; &quot;C73&quot; &quot;C100&quot; ...</code></pre>
 <ul>
 <li>Verificando o resultado <strong><em>sem</em></strong> testemunhas</li>
 </ul>
 <pre class="r"><code>head(TC1$book, 10)</code></pre>
 <pre><code>##    plots r Trat
-## 1     11 1   C3
-## 2     12 1   C4
-## 3     13 1  C61
-## 4     14 1  C58
-## 5     15 1 C100
-## 6     16 1  C52
-## 7     17 1  C36
-## 8     18 1   C7
-## 9     19 1  C72
-## 10    20 1  C90</code></pre>
+## 1     11 1  C40
+## 2     12 1   C9
+## 3     13 1  C73
+## 4     14 1 C100
+## 5     15 1  C15
+## 6     16 1  C92
+## 7     17 1  C50
+## 8     18 1  C49
+## 9     19 2   C9
+## 10    20 1  C61</code></pre>
 <ul>
 <li><strong>Inserindo testemunhas (controle)</strong></li>
 </ul>
@@ -112,16 +108,16 @@ TC1 &lt;-
 <p><strong>Resultado do planejamento do experimento</strong></p>
 <pre class="r"><code>head(TC1, 10)</code></pre>
 <pre><code>##    plots r TratC
-## 1      1 1   C51
-## 2      2 1    C5
-## 3      3 1   C79
-## 4      4 1   C31
-## 5      5 1   C47
-## 6      6 2   C79
-## 7      7 1   C41
-## 8      8 1   C74
-## 9      9 1   C30
-## 10    10 1    C6</code></pre>
+## 1      1 1   C63
+## 2      2 1   C90
+## 3      3 1   C23
+## 4      4 1   C12
+## 5      5 1   C94
+## 6      6 1   C20
+## 7      7 1   C61
+## 8      8 1   C11
+## 9      9 1   C41
+## 10    10 1    C9</code></pre>
 <ul>
 <li>Resumo dos dados com contagem dos tratamentos</li>
 </ul>
@@ -159,16 +155,16 @@ TC1 &lt;-
          Clone = TratC)
 head(TC1, 10)</code></pre>
 <pre><code>##    Parcela Bloco Clone col row
-## 1        1     1   C51   1   1
-## 2        2     1    C5   1   2
-## 3        3     1   C79   1   3
-## 4        4     1   C31   1   4
-## 5        5     1   C47   1   5
-## 7        7     1   C41   1   6
-## 8        8     1   C74   1   7
-## 9        9     1   C30   1   8
-## 10      10     1    C6   1   9
-## 11      11     1   C24   1  10</code></pre>
+## 1        1     1   C63   1   1
+## 2        2     1   C90   1   2
+## 3        3     1   C23   1   3
+## 4        4     1   C12   1   4
+## 5        5     1   C94   1   5
+## 6        6     1   C20   1   6
+## 7        7     1   C61   1   7
+## 8        8     1   C11   1   8
+## 9        9     1   C41   1   9
+## 10      10     1    C9   1  10</code></pre>
 <ul>
 <li>Plotando um rascunho do croqui com a função <code>desplot</code> do pacote <code>{desplot}</code></li>
 </ul>
@@ -191,7 +187,7 @@ head(TC1, 10)</code></pre>
     legend.key.size = unit(30, units = &quot;mm&quot;),
     legend.text = element_text(size = 30)
   )</code></pre>
-<p><img src="/english/post/Aula8_DoE_v1_files/figure-html/Croqui-1.png" width="2880" /></p>
+<p><img src="/blogdown/english/post/Aula8_DoE_v1_files/figure-html/Croqui-1.png" width="2880" /></p>
 <p>“08 dezembro, 2021”</p>
 <ul>
 <li>Plotando o gráfico configurando camadas da função <code>ggplot</code> do pacote <code>{ggplot2}</code></li>
@@ -220,7 +216,7 @@ ggplot(TC1 %&gt;%
   ) +
 # Camada 6: Configurando tema
   theme(axis.text.y = element_text(size = 8))</code></pre>
-<p><img src="/english/post/Aula8_DoE_v1_files/figure-html/plot%20croqui-1.png" width="576" /></p>
+<p><img src="/blogdown/english/post/Aula8_DoE_v1_files/figure-html/plot%20croqui-1.png" width="576" /></p>
 </div>
 </div>
 <div id="planejamento-experimental-com-dados-reais" class="section level2">
@@ -390,7 +386,7 @@ Croqui &lt;- ggplot(
   facet_wrap(~ Bloco, ncol = Exp$N_Blocos, scales = &quot;free_x&quot;)
 
 Croqui</code></pre>
-<p><img src="/english/post/Aula8_DoE_v1_files/figure-html/plot%20croqui%20Plan-1.png" width="768" /></p>
+<p><img src="/blogdown/english/post/Aula8_DoE_v1_files/figure-html/plot%20croqui%20Plan-1.png" width="768" /></p>
 <ul>
 <li><p><strong>Considerações Finais:</strong></p>
 <ul>

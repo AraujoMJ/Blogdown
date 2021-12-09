@@ -1,13 +1,10 @@
 ---
 title: "Gráfico IMA-SOB: IMA e Sobrevivência dos genótipos"
-output:
-  html_notebook:
-    code_folding: "show"
+output: html_document
 date: 2021-12-08T11:55:12-08:00
-
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="/blogdown/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>Nesse post iremos iniciar as análises utilizadas em um contexto altamente prático. Quando iniciamos uma análise em um conjunto de dados, a primeira abordagem será realizar uma <strong>análise descritiva</strong>, de modo a verificar e responder a seguinte questão: <strong><em>O que aconteceu?</em></strong>. A resposta a essa primeira pergunta é fundamental para que possamos conhecer o conjunto de dados alvo para a execução do estudo. O próximo passo, será realizar uma <strong>análise diagnóstica</strong>, agora para responder: <strong>Por que aconteceu?</strong>.</p>
@@ -250,7 +247,7 @@ ggplot(data = IMA_Surv %&gt;%
       size = 12
     )
   )</code></pre>
-<p><img src="/english/post/IMA_SOB_v1_files/figure-html/ggplot2%202-1.png" width="768" /></p>
+<p><img src="/blogdown/english/post/IMA_SOB_v1_files/figure-html/ggplot2%202-1.png" width="768" /></p>
 <ul>
 <li><p>Algumas observações/informações:</p>
 <ul>
@@ -303,5 +300,5 @@ ggplot(data = IMA_Surv, aes(x = Local, y = Clone)) +
     plot.background = element_rect(fill = &quot;#3A3A3A&quot;)
   ) + 
   facet_wrap(~Idade, ncol = 2)</code></pre>
-<p><img src="/english/post/IMA_SOB_v1_files/figure-html/ggplot2%203-1.png" width="1152" /></p>
+<p><img src="/blogdown/english/post/IMA_SOB_v1_files/figure-html/ggplot2%203-1.png" width="1152" /></p>
 </div>

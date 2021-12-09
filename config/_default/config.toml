@@ -3,6 +3,7 @@ languageCode = "en"
 DefaultContentLanguage = "en"
 title = "Website of Jane Doe"
 theme = "anatole"
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_cache$", "\\.knit\\.md$", "\\.utf8\\.md$"]
 summarylength = 20
 enableEmoji = true
 enableRobotsTXT = true
@@ -19,7 +20,7 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 
 [frontmatter]
-date = ["publishDate", "date", "lastmod"]
+date = ["date", "publishDate", "lastmod"]
 
 [markup]
     [markup.goldmark]

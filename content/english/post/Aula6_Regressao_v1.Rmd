@@ -1,11 +1,6 @@
 ---
 title: "Análise de Regressão"
-output:
-  html_notebook:
-    code_folding: show
-  pdf_document: default
-  html_document:
-    df_print: paged
+output: html_document
 date: 2021-12-07T11:55:12-08:00
 ---
 
