@@ -12,7 +12,7 @@ publishDir = "docs/"
 #disqusShortname = "Comentario"
 
 # Google Analytics
-googleAnalytics = "G-3DFYMBBN16"
+#googleAnalytics = "G-3DFYMBBN16"
 
 # Syntax highlighting
 pygmentsUseClasses = true
