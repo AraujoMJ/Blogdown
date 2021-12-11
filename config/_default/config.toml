@@ -36,3 +36,6 @@ date = ["date", "publishDate", "lastmod"]
 repo = "AraujoMJ/blogdown"
 issueTerm = "pathname"
 theme= "preferred-color-scheme"
+
+[params]
+gtagId = "G-3DFYMBBN16"
